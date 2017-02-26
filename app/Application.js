@@ -1,8 +1,4 @@
-/**
- * The main application class. An instance of this class is created by app.js when it
- * calls Ext.application(). This is the ideal place to handle application launch and
- * initialization details.
- */
+//@charset UTF-8
 Ext.define('Cryptic.Application', {
     extend: 'Ext.app.Application',
     
@@ -11,18 +7,24 @@ Ext.define('Cryptic.Application', {
     stores: [
         // TODO: add global / shared stores here
     ],
-    
-    launch: function () {
-        // TODO - Launch the application
+
+    init: function() {
+        var me = this;
+        // me.initQuickTips();
+        Cryptic.app = me;
+        Ext.USE_NATIVE_JSON = true;
+        Cryptic.appType = 'pro';
+        Ext.enableAriaButtons = false;
+        me.setDefaultToken(Ext.manifest.name.toLowerCase());
     },
 
-    onAppUpdate: function () {
-        Ext.Msg.confirm('Application Update', 'This application has an update, reload?',
-            function (choice) {
-                if (choice === 'yes') {
-                    window.location.reload();
-                }
-            }
-        );
+    launch: function () {
+        //<debug>
+            Cryptic.appType = 'dev';
+            document.cookie = 'XDEBUG_SESSION=PHPSTORM;path=/;';
+        //</debug>
+
+        Ext.manifest.appType = Cryptic.appType;
     }
+
 });
