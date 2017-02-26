@@ -487,7 +487,12 @@ $include-ext-override-sparkline-base: dynamic(false);;
 $include-ext-overrides-progress: dynamic(false);;
 $include-ext-overrides-widget: dynamic(true);;
 $include-ext-overrides-app-application: dynamic(true);;
+$include-ext-overrides-app-basecontroller: dynamic(true);;
 $include-ext-overrides-data-connection: dynamic(true);;
+$include-ext-overrides-data-store: dynamic(true);;
+$include-ext-overrides-data-field-boolean: dynamic(true);;
+$include-ext-overrides-data-field-date: dynamic(true);;
+$include-ext-overrides-data-field-integer: dynamic(true);;
 $include-ext-overrides-dom-element: dynamic(true);;
 $include-ext-overrides-list-tree: dynamic(false);;
 $include-ext-overrides-list-treeitem: dynamic(false);;
@@ -852,6 +857,14 @@ $current-package: false;
 $current-resource-root: $Cryptic-resource-root;
 $relative-image-path-for-uis: $Cryptic-resource-path;
 @import '../../../../../sass/var/all';
+
+/* including package Cryptic */
+$Cryptic-resource-root: '' !default;
+$Cryptic-resource-path: 'images' !default;
+$current-package: false;
+$current-resource-root: $Cryptic-resource-root;
+$relative-image-path-for-uis: $Cryptic-resource-path;
+@import '../../../../../modern/sass/var/Application';
 
 
 /* ======================== RULE ======================== */
