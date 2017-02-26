@@ -3,6 +3,8 @@
      * The application's namespace.
      */
     "name": "Cryptic",
+
+    "routeBase": "api/app.php",
     
     /**
      * The version of the application.
@@ -22,7 +24,8 @@
      */
     "classpath": [
         "app",
-        "${toolkit.name}/src"
+        "${toolkit.name}/src",
+        "${app.dir}/library"
     ],
 
     /**
@@ -217,6 +220,9 @@
         {
             "path": "app.js",
             "bundle": true
+//        }, {
+//            "path": "library/vendor/jwt/jsrsasign-latest-all-min.js",
+//            "bundle": true
         }
     ],
 
@@ -527,7 +533,7 @@
     "builds": {
         "classic": {
             "toolkit": "classic",
-            
+
             "theme": "theme-triton",
             
             "sass": {
@@ -540,8 +546,8 @@
 
         "modern": {
             "toolkit": "modern",
-            
-            "theme": "theme-triton",
+
+            "theme": "theme-material",
             
             "sass": {
                 "generated": {
