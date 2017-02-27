@@ -4,6 +4,11 @@ Ext.define('Cryptic.Application', {
     
     name: 'Cryptic',
 
+    // requires: [
+    //     'Smart.ux.classic.login.Login'
+    //     // 'Cryptic.view.login.Login'
+    // ],
+
     stores: [
         // TODO: add global / shared stores here
     ],
@@ -25,6 +30,7 @@ Ext.define('Cryptic.Application', {
         //</debug>
 
         Ext.manifest.appType = Cryptic.appType;
+
     }
 
 });

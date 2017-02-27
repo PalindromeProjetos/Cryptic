@@ -3,6 +3,7 @@ $image-search-path: 'C:/Users/samuc/Documents/Palindrome/Cryptic/build/productio
 $theme-name:  dynamic( 'theme-triton' );
 $include-cryptic-application: dynamic(true);;
 $include-cryptic-store-personnel: dynamic(true);;
+$include-cryptic-view-login-login: dynamic(true);;
 $include-cryptic-view-main-list: dynamic(true);;
 $include-cryptic-view-main-main: dynamic(true);;
 $include-cryptic-view-main-maincontroller: dynamic(true);;
@@ -150,6 +151,7 @@ $include-ext-data-batch: dynamic(true);;
 $include-ext-data-bufferedstore: dynamic(true);;
 $include-ext-data-chainedstore: dynamic(true);;
 $include-ext-data-clientproxy: dynamic(true);;
+$include-ext-data-colorpallet: dynamic(true);;
 $include-ext-data-connection: dynamic(true);;
 $include-ext-data-dataproxy: dynamic(true);;
 $include-ext-data-datareader: dynamic(true);;
@@ -918,8 +920,16 @@ $include-ext-view-view: dynamic(true);;
 $include-ext-window-messagebox: dynamic(true);;
 $include-ext-window-toast: dynamic(true);;
 $include-ext-window-window: dynamic(true);;
+$include-smart-app-controllerbase: dynamic(true);;
+$include-smart-app-viewcontrollerbase: dynamic(true);;
 $include-smart-data-modelbase: dynamic(true);;
+$include-smart-data-field-colorpallet: dynamic(true);;
 $include-smart-data-proxy-restbase: dynamic(true);;
+$include-smart-ux-app-application: dynamic(true);;
+$include-smart-ux-app-applicationcontroller: dynamic(true);;
+$include-smart-ux-classic-login-login: dynamic(true);;
+$include-smart-ux-classic-login-logincomein: dynamic(true);;
+$include-smart-ux-classic-main-main: dynamic(true);;
 
 
 /* ======================== ETC ======================== */
@@ -1387,11 +1397,3 @@ $relative-image-path-for-uis: $theme-triton-resource-path;
 @import '../../../../../ext/classic/theme-triton/sass/src/menu/Menu';
 @import '../../../../../ext/classic/theme-triton/sass/src/tab/Tab';
 @import '../../../../../ext/classic/theme-triton/sass/src/window/Toast';
-
-/* including package Cryptic */
-$Cryptic-resource-root: '' !default;
-$Cryptic-resource-path: 'images' !default;
-$current-package: false;
-$current-resource-root: $Cryptic-resource-root;
-$relative-image-path-for-uis: $Cryptic-resource-path;
-@import '../../../../../classic/sass/src/view/main/Main';
