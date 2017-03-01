@@ -18,7 +18,7 @@ Ext.define( 'Smart.ux.app.Application', {
         Ext.USE_NATIVE_JSON = true;
         Ext.enableAriaButtons = false;
         Ext.setGlyphFontFamily('fontello');
-        me.setDefaultToken(Ext.manifest.name.toLowerCase());
+        // me.setDefaultToken(Ext.manifest.name.toLowerCase());
     },
 
     launch: function () {

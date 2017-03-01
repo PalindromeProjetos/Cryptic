@@ -1,21 +1,40 @@
-/**
- * This class is the controller for the main view for the application. It is specified as
- * the "controller" of the Main view class.
- *
- * TODO - Replace this content of this view to suite the needs of your application.
- */
+//@charset UTF-8
 Ext.define('Cryptic.view.main.MainController', {
     extend: 'Ext.app.ViewController',
 
     alias: 'controller.main',
 
-    onItemSelected: function (sender, record) {
-        Ext.Msg.confirm('Confirm', 'Are you sure?', 'onConfirm', this);
+    routes: {
+        'login/forgot': {
+            action: 'onForgotGoView'
+        },
+        'login/invite': {
+            action: 'onInviteGoView'
+        }
     },
 
-    onConfirm: function (choice) {
-        if (choice === 'yes') {
-            //
-        }
+    onRenderRouter: function(pnl) {
+        var me = this;
+
+        me.onChangeRouter(pnl);
+    },
+
+    onChangeRouter: function(btn) {
+        var me = this;
+        me.redirectTo(btn.router);
+    },
+
+    onForgotGoView: function () {
+        var me = this,
+            layout = me.getView().down('container[name=userlogin]').getLayout();
+        layout.setActiveItem(1);
+    },
+
+    onInviteGoView: function () {
+        var me = this,
+            layout = me.getView().down('container[name=userlogin]').getLayout();
+        layout.setActiveItem(0);
     }
+    
+    
 });

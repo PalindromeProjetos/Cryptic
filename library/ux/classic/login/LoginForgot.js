@@ -1,8 +1,8 @@
 //@charset UTF-8
-Ext.define( 'Smart.ux.classic.login.LoginComeIn', {
+Ext.define( 'Smart.ux.classic.login.LoginForgot', {
     extend: 'Ext.form.Panel',
 
-    xtype: 'logincomein',
+    xtype: 'loginforgot',
 
     layout: 'anchor',
 
@@ -12,12 +12,6 @@ Ext.define( 'Smart.ux.classic.login.LoginComeIn', {
 
     defaults: {
         anchor: '100%'
-    },
-
-    listeners: {
-        afterrender: function () {
-            this.down('textfield[name=username]').focus(false, 200);
-        }
     },
 
     initComponent: function () {
@@ -32,7 +26,7 @@ Ext.define( 'Smart.ux.classic.login.LoginComeIn', {
         me.items = [
             {
                 xtype: 'label',
-                text: 'Login ...',
+                text: 'Esqueci ...',
                 style: {
                     fontSize: '46px;',
                     display: 'table-cell;',
@@ -55,10 +49,11 @@ Ext.define( 'Smart.ux.classic.login.LoginComeIn', {
                         name: 'username',
                         fieldLabel: 'Nome'
                     }, {
-                        name: 'password',
-                        vtype: 'alphanum',
-                        inputType: 'password',
-                        fieldLabel: 'Senha',
+                        fieldLabel: 'Nascimento',
+                        name: 'birthdate',
+                        xtype: 'datefield',
+                        allowBlank: false,
+                        hideTrigger: true,
                         listeners: {
                             specialkey: function (field, e, eOpts) {
                                 if (e.getKey() === e.ENTER) {
@@ -67,47 +62,6 @@ Ext.define( 'Smart.ux.classic.login.LoginComeIn', {
                                 }
                             }
                         }
-                    }, {
-                        xtype: 'button',
-                        text: 'Sign In',
-                        height: 40,
-                        formBind: true,
-                        style: { color: 'white;' },
-                        listeners: { click: 'onComeInSend' }
-                    }, {
-                        margin: '20 0 0 0',
-                        xtype: 'container',
-                        items:[
-                            {
-                                xtype: 'label',
-                                router: 'login/forgot',
-                                text: 'Esqueci minha senha!',
-                                listeners: {
-                                    click: 'onChangeRouter'
-                                },
-                                style: {
-                                    cursor: 'pointer;',
-                                    textDecoration: 'underline;'
-                                }
-                            }
-                        ]
-                    }, {
-                        margin: '3 0 0 0',
-                        xtype: 'container',
-                        items:[
-                            {
-                                xtype: 'label',
-                                router: 'login/invite',
-                                text: 'Código de ativação...',
-                                listeners: {
-                                    click: 'onChangeRouter'
-                                },
-                                style: {
-                                    cursor: 'pointer;',
-                                    textDecoration: 'underline;'
-                                }
-                            }
-                        ]
                     }
                 ]
             }
@@ -132,19 +86,19 @@ Ext.define( 'Smart.ux.classic.login.LoginComeIn', {
                 {
                     xtype: 'container'
                 }, {
-                    text: 'Login',
+                    text: 'Enviar',
                     formBind: true,
-                    showSmartTheme: 'blue',
+                    showSmartTheme: 'red',
                     listeners: {
-                        click: 'onComeInSend'
+                        click: 'onForgotSend'
                     }
                 }, {
                     xtype: 'splitter'
                 }, {
                     xtype: 'label',
-                    text: 'Esqueci minha senha!',
+                    text: 'Login de acesso!',
                     listeners: {
-                        click: 'onForgotGoView'
+                        click: 'onComeInGoView'
                     },
                     style: {
                         cursor: 'pointer;',

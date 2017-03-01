@@ -15,7 +15,7 @@ Ext.define('Cryptic.Application', {
 
     init: function() {
         var me = this;
-        // me.initQuickTips();
+
         Cryptic.app = me;
         Ext.USE_NATIVE_JSON = true;
         Cryptic.appType = 'pro';

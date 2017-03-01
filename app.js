@@ -7,10 +7,10 @@ Ext.Loader.setConfig({
         'Smart.data.proxy': 'library/data/proxy',
         'Smart.data.field': 'library/data/field',
 
-        'Smart.ux.classic.main': 'library/ux/classic/main',
+        // 'Smart.ux.classic.main': 'library/ux/classic/main',
         'Smart.ux.classic.login': 'library/ux/classic/login',
-
-        'Smart.ux.modern.main': 'library/ux/modern/main',
+        //
+        // 'Smart.ux.modern.main': 'library/ux/modern/main',
         'Smart.ux.modern.login': 'library/ux/modern/login'
     }
 });
@@ -21,6 +21,7 @@ Ext.application({
     extend: 'Cryptic.Application',
 
     requires: [
+        'Smart.ux.classic.login.Login',
         'Cryptic.view.login.Login'
     ],
 

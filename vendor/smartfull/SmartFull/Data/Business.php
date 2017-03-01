@@ -57,9 +57,14 @@ class Business extends Store implements BusinessInterface
     }
 
     public function getAll(PageRequest $pager) : ResultSet {
-        $start = $pager->getStart();
-        $limit = $pager->getLimit();
+        $model = new $this->_model();
         $result = $this->getResult();
+
+        $fields = array();
+
+        foreach ($model as $field => $value) {
+            $fields[] = $field;
+        }
 
         $sql = "
             declare
@@ -68,13 +73,13 @@ class Business extends Store implements BusinessInterface
 
             WITH pager AS (
                 SELECT
-                    *,
+                    ". trim(implode(', ', $fields)) .",
                     ROW_NUMBER() OVER (ORDER BY id) AS rowindex
                 FROM
                     {$this->_table}
             )
             SELECT
-                *,
+                ". trim(implode(', ', $fields)) .",
 				total = ( select count(id) from pager )
             FROM
                 pager
@@ -82,17 +87,17 @@ class Business extends Store implements BusinessInterface
 
         try {
 
-            $pdo = $this->getProxy()->prepare($sql);
-            $pdo->bindValue(":start", $start, \PDO::PARAM_INT);
-            $pdo->bindValue(":limit", $limit, \PDO::PARAM_INT);
+            $statement = $this->getProxy()->prepare($sql);
+            $statement->bindValue(":start", $pager->getStart(), \PDO::PARAM_INT);
+            $statement->bindValue(":limit", $pager->getLimit(), \PDO::PARAM_INT);
 
-            $callback = $pdo->execute();
+            $callback = $statement->execute();
 
             if(!$callback) {
                 throw new \PDOException($result::FAILURE_STATEMENT);
             }
 
-            $rows = $pdo->fetchAll();
+            $rows = $statement->fetchAll();
 
             $records = (count($rows) != 0) ? $rows[0]['total'] : 0;
 

@@ -37,6 +37,7 @@
      */
     "overrides": [
         "overrides",
+        "overrides/${toolkit.name}",
         "${toolkit.name}/overrides"
     ],
 

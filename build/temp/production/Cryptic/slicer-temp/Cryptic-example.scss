@@ -658,6 +658,21 @@ $include-ext-overrides-dom-helper: dynamic(true);;
 $include-ext-overrides-event-event: dynamic(true);;
 $include-ext-overrides-event-publisher-dom: dynamic(true);;
 $include-ext-overrides-event-publisher-gesture: dynamic(true);;
+$include-ext-overrides-form-fieldcontainer: dynamic(true);;
+$include-ext-overrides-form-label: dynamic(true);;
+$include-ext-overrides-form-labelable: dynamic(true);;
+$include-ext-overrides-form-panel: dynamic(true);;
+$include-ext-overrides-form-field-base: dynamic(true);;
+$include-ext-overrides-form-field-checkbox: dynamic(true);;
+$include-ext-overrides-form-field-combobox: dynamic(true);;
+$include-ext-overrides-form-field-date: dynamic(true);;
+$include-ext-overrides-form-field-display: dynamic(true);;
+$include-ext-overrides-form-field-file: dynamic(true);;
+$include-ext-overrides-form-field-number: dynamic(true);;
+$include-ext-overrides-form-field-picker: dynamic(true);;
+$include-ext-overrides-form-field-text: dynamic(true);;
+$include-ext-overrides-form-field-time: dynamic(true);;
+$include-ext-overrides-form-field-vtypes: dynamic(true);;
 $include-ext-overrides-list-treeitem: dynamic(true);;
 $include-ext-overrides-plugin-abstract: dynamic(true);;
 $include-ext-overrides-util-positionable: dynamic(true);;
@@ -929,7 +944,10 @@ $include-smart-ux-app-application: dynamic(true);;
 $include-smart-ux-app-applicationcontroller: dynamic(true);;
 $include-smart-ux-classic-login-login: dynamic(true);;
 $include-smart-ux-classic-login-logincomein: dynamic(true);;
+$include-smart-ux-classic-login-loginforgot: dynamic(true);;
 $include-smart-ux-classic-main-main: dynamic(true);;
+$include-smart-ux-modern-login-login: dynamic(true);;
+$include-smart-ux-modern-login-logincomein: dynamic(true);;
 
 
 /* ======================== ETC ======================== */
