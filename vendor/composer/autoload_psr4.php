@@ -13,7 +13,7 @@ return array(
     'Psr\\Container\\' => array($vendorDir . '/psr/container/src'),
     'Lcobucci\\JWT\\' => array($vendorDir . '/lcobucci/jwt/src'),
     'Interop\\Container\\' => array($vendorDir . '/container-interop/container-interop/src/Interop/Container'),
-    'Helper\\' => array($baseDir . '/api/Api'),
     'FastRoute\\' => array($vendorDir . '/nikic/fast-route/src'),
     'Endroid\\QrCode\\' => array($vendorDir . '/endroid/qrcode/src'),
+    'Cryptic\\' => array($baseDir . '/api/Api'),
 );

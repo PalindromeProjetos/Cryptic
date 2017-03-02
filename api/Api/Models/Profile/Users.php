@@ -43,4 +43,10 @@ class Users extends Model
      */
     public $fullname;
 
+    /**
+     * @Policy {"nullable":false, "length":80}
+     * @Column {"description":"", "type":"string", "policy":true, "logallow":true, "default":null}
+     */
+    public $mainmail;
+
 }

@@ -62,6 +62,47 @@ Ext.define( 'Smart.ux.classic.login.LoginForgot', {
                                 }
                             }
                         }
+                    }, {
+                        xtype: 'button',
+                        text: 'Enviar',
+                        height: 40,
+                        formBind: true,
+                        style: { color: 'white;' },
+                        listeners: { click: 'onForgotSend' }
+                    }, {
+                        margin: '20 0 0 0',
+                        xtype: 'container',
+                        items:[
+                            {
+                                xtype: 'label',
+                                router: 'login/comein',
+                                text: 'Login de acesso!',
+                                listeners: {
+                                    click: 'onChangeRouter'
+                                },
+                                style: {
+                                    cursor: 'pointer;',
+                                    textDecoration: 'underline;'
+                                }
+                            }
+                        ]
+                    }, {
+                        margin: '3 0 0 0',
+                        xtype: 'container',
+                        items:[
+                            {
+                                xtype: 'label',
+                                router: 'login/invite',
+                                text: 'Código de ativação...',
+                                listeners: {
+                                    click: 'onChangeRouter'
+                                },
+                                style: {
+                                    cursor: 'pointer;',
+                                    textDecoration: 'underline;'
+                                }
+                            }
+                        ]
                     }
                 ]
             }

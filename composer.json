@@ -20,7 +20,7 @@
         ],
 
         "psr-4": {
-            "Helper\\":"api/Api",
+            "Cryptic\\":"api/Api",
             "SmartFull\\": "vendor/smartfull/SmartFull"
         }
 

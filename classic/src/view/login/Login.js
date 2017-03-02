@@ -4,7 +4,7 @@ Ext.define( 'Cryptic.view.login.Login', {
 
     xtype: 'app-login',
 
-    router: 'login/invite',
+    router: 'login/comein',
 
     requires: [
         'Ext.plugin.Viewport',

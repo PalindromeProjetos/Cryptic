@@ -6,7 +6,7 @@ use SmartFull\Utils\Strings;
 use SmartFull\Data\ResultSet;
 use SmartFull\Data\Controller;
 use SmartFull\Data\PageRequest;
-use Helper\Api\Business\UsersBusiness;
+use Cryptic\Api\Business\UsersBusiness;
 use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
 
@@ -24,6 +24,16 @@ class UsersController extends Controller
     {
         parent::__construct($request, $response);
         $this->usersBusiness = new UsersBusiness();
+    }
+
+    /**
+     * @HttpGet {
+     *      "route":"logincomein"
+     * }
+     */
+    public function onComeInSend (string $username, string $password) : ResultSet {
+        $result = $this->usersBusiness->onComeInSend($username,$password, $this->getRequest());
+        return $result;
     }
 
     /**

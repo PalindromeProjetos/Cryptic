@@ -6,6 +6,9 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'Cryptic\\Api\\Business\\UsersBusiness' => $baseDir . '/api/Api/Business/Profile/UsersBusiness.php',
+    'Cryptic\\Api\\Controllers\\UsersController' => $baseDir . '/api/Api/Controllers/Profile/UsersController.php',
+    'Cryptic\\Api\\Models\\Users' => $baseDir . '/api/Api/Models/Profile/Users.php',
     'EasyPeasyICS' => $vendorDir . '/phpmailer/phpmailer/extras/EasyPeasyICS.php',
     'Endroid\\QrCode\\Bundle\\Controller\\QrCodeController' => $vendorDir . '/endroid/qrcode/src/Bundle/Controller/QrCodeController.php',
     'Endroid\\QrCode\\Bundle\\DependencyInjection\\Configuration' => $vendorDir . '/endroid/qrcode/src/Bundle/DependencyInjection/Configuration.php',

@@ -4,6 +4,8 @@ Ext.define( 'Cryptic.view.login.Login', {
 
     xtype: 'app-login',
 
+    router: 'login/comein',
+
     requires: [
         'Ext.MessageBox',
         'Ext.field.Text',

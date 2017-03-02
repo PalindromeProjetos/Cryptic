@@ -30,10 +30,6 @@ class ComposerStaticInitcd2974de8540642226465aba6f6c8e54
         array (
             'Interop\\Container\\' => 18,
         ),
-        'H' => 
-        array (
-            'Helper\\' => 7,
-        ),
         'F' => 
         array (
             'FastRoute\\' => 10,
@@ -41,6 +37,10 @@ class ComposerStaticInitcd2974de8540642226465aba6f6c8e54
         'E' => 
         array (
             'Endroid\\QrCode\\' => 15,
+        ),
+        'C' => 
+        array (
+            'Cryptic\\' => 8,
         ),
     );
 
@@ -73,10 +73,6 @@ class ComposerStaticInitcd2974de8540642226465aba6f6c8e54
         array (
             0 => __DIR__ . '/..' . '/container-interop/container-interop/src/Interop/Container',
         ),
-        'Helper\\' => 
-        array (
-            0 => __DIR__ . '/../..' . '/api/Api',
-        ),
         'FastRoute\\' => 
         array (
             0 => __DIR__ . '/..' . '/nikic/fast-route/src',
@@ -84,6 +80,10 @@ class ComposerStaticInitcd2974de8540642226465aba6f6c8e54
         'Endroid\\QrCode\\' => 
         array (
             0 => __DIR__ . '/..' . '/endroid/qrcode/src',
+        ),
+        'Cryptic\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/api/Api',
         ),
     );
 
@@ -109,6 +109,9 @@ class ComposerStaticInitcd2974de8540642226465aba6f6c8e54
     );
 
     public static $classMap = array (
+        'Cryptic\\Api\\Business\\UsersBusiness' => __DIR__ . '/../..' . '/api/Api/Business/Profile/UsersBusiness.php',
+        'Cryptic\\Api\\Controllers\\UsersController' => __DIR__ . '/../..' . '/api/Api/Controllers/Profile/UsersController.php',
+        'Cryptic\\Api\\Models\\Users' => __DIR__ . '/../..' . '/api/Api/Models/Profile/Users.php',
         'EasyPeasyICS' => __DIR__ . '/..' . '/phpmailer/phpmailer/extras/EasyPeasyICS.php',
         'Endroid\\QrCode\\Bundle\\Controller\\QrCodeController' => __DIR__ . '/..' . '/endroid/qrcode/src/Bundle/Controller/QrCodeController.php',
         'Endroid\\QrCode\\Bundle\\DependencyInjection\\Configuration' => __DIR__ . '/..' . '/endroid/qrcode/src/Bundle/DependencyInjection/Configuration.php',
