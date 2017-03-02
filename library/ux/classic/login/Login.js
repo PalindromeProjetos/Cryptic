@@ -3,9 +3,15 @@ Ext.define( 'Smart.ux.classic.login.Login', {
     extend: 'Ext.panel.Panel',
 
     requires: [
+        'Ext.panel.Panel',
+        'Ext.plugin.Viewport',
+        'Ext.container.Container',
+
         'Smart.ux.classic.login.LoginComeIn',
         'Smart.ux.classic.login.LoginForgot'
     ],
+
+    plugins: 'viewport',
 
     layout: {
         type: 'vbox',

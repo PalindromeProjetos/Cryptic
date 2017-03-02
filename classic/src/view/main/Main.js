@@ -1,16 +1,16 @@
 //@charset UTF-8
 Ext.define( 'Cryptic.view.main.Main', {
-    extend: 'Ext.form.Panel',
-
+    extend: 'Smart.ux.classic.main.Main',
+    
     xtype: 'app-main',
 
+    router: 'app',
+
     requires: [
-        'Ext.plugin.Viewport',
+        'Smart.ux.classic.main.Main',
         'Cryptic.view.main.MainController'
     ],
 
-    controller: 'main',
-
-    title: Ext.manifest.name
+    controller: 'main'
 
 });

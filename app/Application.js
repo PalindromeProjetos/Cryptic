@@ -4,10 +4,10 @@ Ext.define('Cryptic.Application', {
     
     name: 'Cryptic',
 
-    // requires: [
-    //     'Smart.ux.classic.login.Login'
-    //     // 'Cryptic.view.login.Login'
-    // ],
+    requires: [
+        'Smart.ux.classic.login.Login',
+        'Cryptic.view.login.Login'
+    ],
 
     stores: [
         // TODO: add global / shared stores here
@@ -28,9 +28,8 @@ Ext.define('Cryptic.Application', {
             Cryptic.appType = 'dev';
             document.cookie = 'XDEBUG_SESSION=PHPSTORM;path=/;';
         //</debug>
-
+        Ext.create({ xtype: 'app-login' });
         Ext.manifest.appType = Cryptic.appType;
-
     }
 
 });

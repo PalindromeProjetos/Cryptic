@@ -221,9 +221,6 @@
         {
             "path": "app.js",
             "bundle": true
-        }, {
-            "path": "library/vendor/jwt/jsrsasign-latest-all-min.js",
-            "bundle": true
         }
     ],
 

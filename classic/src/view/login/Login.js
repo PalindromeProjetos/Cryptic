@@ -7,7 +7,6 @@ Ext.define( 'Cryptic.view.login.Login', {
     router: 'login/comein',
 
     requires: [
-        'Ext.plugin.Viewport',
         'Smart.ux.classic.login.Login',
         'Cryptic.view.main.MainController'
     ],

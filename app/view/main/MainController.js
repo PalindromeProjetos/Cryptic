@@ -4,35 +4,29 @@ Ext.define( 'Cryptic.view.main.MainController', {
 
     alias: 'controller.main',
 
-    requires: [
-        'Cryptic.model.profile.Users'
-    ],
-
     routes: {
-        'main': {
+        'app': {
             action: 'onSelectGoMain'
-        },
-        'login/forgot': {
-            action: 'onForgotGoView'
         },
         'login/comein': {
             action: 'onComeInGoView'
+        },
+        'login/forgot': {
+            action: 'onForgotGoView'
         }
     },
 
     onSelectGoMain: function () {
+        var me = this,
+            view = me.getView();
+
+        view.destroy();
         Ext.create({xtype: 'app-main'});
     },
 
-    onRenderRouter: function(pnl) {
+    onChangeRouter: function (cmp) {
         var me = this;
-
-        me.onChangeRouter(pnl);
-    },
-
-    onChangeRouter: function(btn) {
-        var me = this;
-        me.redirectTo(btn.router);
+        me.redirectTo(cmp.router);
     },
 
     onForgotGoView: function () {
@@ -43,8 +37,10 @@ Ext.define( 'Cryptic.view.main.MainController', {
 
     onComeInGoView: function () {
         var me = this,
-            layout = me.getView().down('container[name=userlogin]').getLayout();
-        layout.setActiveItem(0);
+            view = me.getView();
+
+        view.destroy();
+        Ext.create({xtype: 'app-login'});
     },
 
     onComeInSend: function () {
@@ -69,7 +65,7 @@ Ext.define( 'Cryptic.view.main.MainController', {
                 Ext.manifest.auth = '';
                 if(success == true) {
                     Ext.manifest.auth = Ext.decode(operation.getResponse().responseText).message;
-                    me.redirectTo('main');
+                    me.redirectTo('app');
                 }
             }
         });

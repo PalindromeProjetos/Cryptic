@@ -7,9 +7,9 @@ Ext.Loader.setConfig({
         'Smart.data.proxy': 'library/data/proxy',
         'Smart.data.field': 'library/data/field',
 
-        // 'Smart.ux.classic.main': 'library/ux/classic/main',
+        'Smart.ux.classic.main': 'library/ux/classic/main',
         'Smart.ux.classic.login': 'library/ux/classic/login',
-        //
+        
         // 'Smart.ux.modern.main': 'library/ux/modern/main',
         'Smart.ux.modern.login': 'library/ux/modern/login'
     }
@@ -18,13 +18,13 @@ Ext.Loader.setConfig({
 Ext.application({
     name: 'Cryptic',
 
-    extend: 'Cryptic.Application',
+    extend: 'Cryptic.Application'
 
-    requires: [
-        'Smart.ux.classic.login.Login',
-        'Cryptic.view.login.Login'
-    ],
+    //requires: [
+    //    'Smart.ux.classic.login.Login',
+    //    'Cryptic.view.login.Login'
+    //],
 
-    mainView: 'Cryptic.view.login.Login'
+    //mainView: 'Cryptic.view.login.Login'
 
 });
