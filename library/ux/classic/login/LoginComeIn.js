@@ -47,8 +47,8 @@ Ext.define( 'Smart.ux.classic.login.LoginComeIn', {
                 layout: 'anchor',
                 defaultType: 'textfield',
                 defaults: {
-                    anchor: '100%'
-                    // allowBlank: false
+                    anchor: '100%',
+                    allowBlank: false
                 },
                 items: [
                     {

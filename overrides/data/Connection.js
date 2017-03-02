@@ -12,12 +12,9 @@ Ext.define( 'Ext.overrides.data.Connection', {
         options = options || {};
 
         options.headers = {
-            'Authorization': '',
+            'Authorization': Ext.manifest.auth ? 'Bearer ' + Ext.manifest.auth : '',
             'Credential-Type' : Ext.manifest.appType,
-            'Credential-Name' : 'Palindrome Projetos',
-            'Credential-Auth' : Ext.util.Cookies.get('Credential-Auth'),
-            'Credential-Code' : Ext.util.Cookies.get('Credential-Code'),
-            'Credential-Data' : Ext.util.Cookies.get('Credential-Data')
+            'Credential-Name' : 'Palindrome Projetos'
         };
 
         return this.callParent(arguments);

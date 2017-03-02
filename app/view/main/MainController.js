@@ -9,12 +9,19 @@ Ext.define( 'Cryptic.view.main.MainController', {
     ],
 
     routes: {
+        'main': {
+            action: 'onSelectGoMain'
+        },
         'login/forgot': {
             action: 'onForgotGoView'
         },
         'login/comein': {
             action: 'onComeInGoView'
         }
+    },
+
+    onSelectGoMain: function () {
+        Ext.create({xtype: 'app-main'});
     },
 
     onRenderRouter: function(pnl) {
@@ -56,7 +63,16 @@ Ext.define( 'Cryptic.view.main.MainController', {
 
         store.getProxy().setRoute(routeList.route.logincomein + '?username=' + data.username + '&password=' + data.password);
 
-        store.load();
+        store.load({
+            scope: me,
+            callback: function(records, operation, success) {
+                Ext.manifest.auth = '';
+                if(success == true) {
+                    Ext.manifest.auth = Ext.decode(operation.getResponse().responseText).message;
+                    me.redirectTo('main');
+                }
+            }
+        });
 
         // view.setLoading('Autenticando usuário...');
 
