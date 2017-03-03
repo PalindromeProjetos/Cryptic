@@ -19,23 +19,21 @@ final class Auth
     }
 
     public static function createToken (array $credential) : string {
-        $signer = new Sha256();
-
+        $sign = new Sha256();
         $bearer = self::arrayToObject($credential);
 
         $token = (new Builder())->setIssuer($bearer->iss)       // Configures the issuer (iss claim)
                                 ->setAudience($bearer->aud)     // Configures the audience (aud claim)
-                                ->setId('4f1g23a12aa', true)    // Configures the id (jti claim), replicating as a header item
-                                ->setIssuedAt(time())              // Configures the time that the token was issue (iat claim)
-                                ->setNotBefore(time() + 60)             // Configures the time that the token can be used (nbf claim)
-                                ->setExpiration(time() + 3600)            // Configures the expiration time of the token (nbf claim)
-                                ->set('usr', $bearer->usr)      // Configures a new claim, called "uid"
+                                ->setId($bearer->jti,true)      // Configures the id (jti claim), replicating as a header item
+                                ->setIssuedAt(time() + 60)      // Configures the time that the token was issue (iat claim)
+                                ->setNotBefore(time())          // Configures the time that the token can be used (nbf claim)
+                                ->setExpiration($bearer->day)   // Configures the expiration time of the token (nbf claim)
+                                ->set('usr', $bearer->usr)      // Configures a new claim, called "usr"
                                 ->set('uid', $bearer->uid)      // Configures a new claim, called "uid"
-                                ->sign($signer,$bearer->pwd)
+                                ->sign($sign,$bearer->pwd)
                                 ->getToken();                   // Retrieves the generated token
 
         return $token;
-
     }
 
     public static function validaToken (string $token, Request $request) : boolean {

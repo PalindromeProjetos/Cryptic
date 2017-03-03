@@ -26,7 +26,7 @@ class UsersBusiness extends Business
 
         $sql = "
             declare
-                @username varchar(50) = :username;
+                @username varchar(45) = :username;
                 
             SELECT
                 u.id,
@@ -39,7 +39,6 @@ class UsersBusiness extends Business
             WHERE u.username = @username";
 
         try {
-
             $pdo = $this->getProxy()->prepare($sql);
             $pdo->bindValue(":username", $username, \PDO::PARAM_STR);
 
@@ -59,12 +58,21 @@ class UsersBusiness extends Business
 
             $success = self::tryHash($password,$rows->password);
 
+            $date = new \DateTime();
+
+            $date->modify('+ 1 days');
+            $days = $date->format("Y-m-d H:i:s");
+
+            $referer = $request->getHeader('referer')[0];
+
             $credential = array(
-                "iss"=>$request->getUri()->getBaseUrl(),
-                "aud"=>$request->getUri()->getScheme(),
+                "iss"=>$referer,
+                "jti"=>substr(md5($referer),-10),
+                "aud"=>$request->getUri()->getBaseUrl(),
                 "uid"=>$rows->id,
                 "usr"=>$rows->username,
-                "pwd"=>$rows->password
+                "pwd"=>$rows->password,
+                "day"=>strtotime($days)
             );
 
             unset($rows->password);

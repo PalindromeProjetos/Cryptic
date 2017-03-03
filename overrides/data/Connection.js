@@ -9,13 +9,15 @@ Ext.define( 'Ext.overrides.data.Connection', {
     },
 
     request: function(options) {
-        options = options || {};
+        var headers = {
+                'Credential-Type' : Ext.manifest.appType
+            };
 
-        options.headers = {
-            'Authorization': Ext.manifest.auth ? 'Bearer ' + Ext.manifest.auth : '',
-            'Credential-Type' : Ext.manifest.appType,
-            'Credential-Name' : 'Palindrome Projetos'
-        };
+        if(Ext.manifest.auth) {
+            headers.Authorization = 'Bearer ' + Ext.manifest.auth;
+        }
+
+        options.headers = headers;
 
         return this.callParent(arguments);
     }

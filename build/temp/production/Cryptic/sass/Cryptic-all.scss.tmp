@@ -3,13 +3,10 @@ $image-search-path: 'C:/Users/samuc/Documents/Palindrome/Cryptic/build/productio
 $theme-name:  dynamic( 'theme-triton' );
 $include-cryptic-application: dynamic(true);;
 $include-cryptic-model-profile-users: dynamic(true);;
-$include-cryptic-store-personnel: dynamic(false);;
 $include-cryptic-store-profile-users: dynamic(true);;
 $include-cryptic-view-login-login: dynamic(true);;
-$include-cryptic-view-main-list: dynamic(false);;
 $include-cryptic-view-main-main: dynamic(true);;
 $include-cryptic-view-main-maincontroller: dynamic(true);;
-$include-cryptic-view-main-mainmodel: dynamic(false);;
 $include-ext-abstractcomponent: dynamic(true);;
 $include-ext-abstractcontainer: dynamic(true);;
 $include-ext-abstractmanager: dynamic(false);;

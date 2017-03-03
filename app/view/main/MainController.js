@@ -19,7 +19,6 @@ Ext.define( 'Cryptic.view.main.MainController', {
     onSelectGoMain: function () {
         var me = this,
             view = me.getView();
-
         view.destroy();
         Ext.create({xtype: 'app-main'});
     },
