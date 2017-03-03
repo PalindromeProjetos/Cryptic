@@ -72,6 +72,7 @@ Ext.define( 'Smart.ux.classic.login.LoginComeIn', {
                         text: 'Sign In',
                         height: 40,
                         formBind: true,
+                        name: 'comeinsend',
                         style: { color: 'white;' },
                         listeners: { click: 'onComeInSend' }
                     }, {

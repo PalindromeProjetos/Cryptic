@@ -1,35 +1,23 @@
 //@charset UTF-8
-Ext.define('Cryptic.Application', {
-    extend: 'Ext.app.Application',
+Ext.define( 'Cryptic.Application', {
+    extend: 'Smart.ux.app.Application',
     
     name: 'Cryptic',
 
-    requires: [
-        'Smart.ux.classic.login.Login',
-        'Cryptic.view.login.Login'
+    controllers: [
+        'Cryptic.controller.App'
     ],
 
     stores: [
-        // TODO: add global / shared stores here
+        'Cryptic.store.profile.Users'
     ],
 
-    init: function() {
+    launch: function () {
         var me = this;
 
-        Cryptic.app = me;
-        Ext.USE_NATIVE_JSON = true;
-        Cryptic.appType = 'pro';
-        Ext.enableAriaButtons = false;
-        me.setDefaultToken(Ext.manifest.name.toLowerCase());
-    },
+        me.callParent();
 
-    launch: function () {
-        //<debug>
-            Cryptic.appType = 'dev';
-            document.cookie = 'XDEBUG_SESSION=PHPSTORM;path=/;';
-        //</debug>
-        Ext.create({ xtype: 'app-login' });
-        Ext.manifest.appType = Cryptic.appType;
+        me.getController('App').redirectTo('login/comein');
     }
 
 });

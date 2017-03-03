@@ -4,17 +4,11 @@ Ext.define( 'Cryptic.view.login.Login', {
 
     xtype: 'app-login',
 
-    router: 'login/comein',
-
     requires: [
         'Smart.ux.classic.login.Login',
         'Cryptic.view.main.MainController'
     ],
 
-    controller: 'main',
-
-    listeners: {
-        render: 'onChangeRouter'
-    }
+    controller: 'main'
 
 });
