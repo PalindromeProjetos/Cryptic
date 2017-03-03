@@ -174,10 +174,3 @@ class UsersBusiness extends Business
 //    }
 
 }
-
-//<?php
-//$pattern = '/Bearer:.*{.+\\}.*/';
-//$subject = 'Bearer: {"iss":"http://localhost/smarthelper","usr":"samuel.dasilva"}';
-//$result = preg_match( $pattern, $subject , $matches );
-//echo $result;
-//print_r($matches);
