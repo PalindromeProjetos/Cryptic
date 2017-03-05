@@ -72,9 +72,9 @@ Ext.define( 'Smart.ux.classic.login.LoginComeIn', {
                         text: 'Sign In',
                         height: 40,
                         formBind: true,
-                        name: 'comeinsend',
-                        style: { color: 'white;' },
-                        listeners: { click: 'onComeInSend' }
+                        name: 'comeinsend'
+                        // style: { color: 'white;' },
+                        // listeners: { click: 'onComeInSend' }
                     }, {
                         margin: '20 0 0 0',
                         xtype: 'container',
@@ -83,9 +83,9 @@ Ext.define( 'Smart.ux.classic.login.LoginComeIn', {
                                 xtype: 'label',
                                 router: 'login/forgot',
                                 text: 'Esqueci minha senha!',
-                                listeners: {
-                                    click: 'onChangeRouter'
-                                },
+                                // listeners: {
+                                //     click: 'onChangeRouter'
+                                // },
                                 style: {
                                     cursor: 'pointer;',
                                     textDecoration: 'underline;'
@@ -100,9 +100,9 @@ Ext.define( 'Smart.ux.classic.login.LoginComeIn', {
                                 xtype: 'label',
                                 router: 'login/invite',
                                 text: 'Código de ativação...',
-                                listeners: {
-                                    click: 'onChangeRouter'
-                                },
+                                // listeners: {
+                                //     click: 'onChangeRouter'
+                                // },
                                 style: {
                                     cursor: 'pointer;',
                                     textDecoration: 'underline;'

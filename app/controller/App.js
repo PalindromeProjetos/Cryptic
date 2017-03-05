@@ -19,23 +19,113 @@ Ext.define( 'Cryptic.controller.App', {
         }
     },
 
+    refs: [
+        {
+            ref: 'login',
+            selector: 'app-login'
+        }, {
+            ref: 'main',
+            selector: 'app-main'
+        }
+    ],
+
+    init: function () {
+        var me = this;
+
+        me.control({
+            'app-login label': {
+                click: me.onChangeRouter
+            },
+            'app-login button[name=comeinsend]': {
+                click: me.onComeInSend
+            }
+        });
+    },
+
+    onSelectGoMain: function () {
+        var me = this;
+        if(me.getMain()) me.getMain().destroy();
+        if(me.getLogin()) me.getLogin().destroy();
+        Ext.create({ xtype: 'app-main' });
+    },
+
+    onComeInGoView: function () {
+        var me = this;
+        if(me.getMain()) me.getMain().destroy();
+        if(me.getLogin()) me.getLogin().destroy();
+        Ext.create({ xtype: 'app-login' });
+    },
+
+    onForgotGoView: function () {
+        var me = this,
+            layout = me.getLogin().down('container[name=userlogin]').getLayout();
+        layout.setActiveItem(1);
+    },
+
     onChangeRouter: function (cmp) {
         var me = this;
         me.redirectTo(cmp.router);
     },
 
-    onSelectGoMain: function () {
-        Ext.create({ xtype: 'app-main' });
-    },
-
-    onForgotGoView: function () {
+    onComeInSend: function () {
         var me = this,
-            layout = me.getView().down('container[name=userlogin]').getLayout();
-        layout.setActiveItem(1);
+            view = me.getLogin(),
+            form = view.down('logincomein'),
+            store = Ext.getStore('Users') || Ext.create('Cryptic.store.profile.Users'),
+            model = store.getModel(),
+            field = form.getValues(),
+            routeList = (new model).getRouteList();
+
+        if(!form.isValid()) {
+            return false;
+        }
+
+        view.setLoading('Autenticando usuário...');
+
+        store.getProxy().setRoute(routeList.route.logincomein + '?username=' + field.username + '&password=' + field.password);
+
+        store.load({
+            scope: me,
+            callback: function(records, operation, success) {
+                Ext.manifest.auth = '';
+                view.setLoading(false);
+
+                if(success == true) {
+                    view.destroy();
+                    me.redirectTo('app');
+                    Ext.manifest.auth = Ext.decode(operation.getResponse().responseText).message;
+                }
+            }
+        });
     },
 
-    onComeInGoView: function () {
-        Ext.create({ xtype: 'app-login' });
+    onForgotSend: function () {
+        var me = this,
+            view = me.getView(),
+            form = view.down('loginforgot');
+
+        if(!form.isValid()) {
+            return false;
+        }
+
+        view.setLoading('Gerando senha convite...');
+
+        form.submit({
+            scope: me,
+            url: me.url,
+            clientValidation: true,
+            params: {
+                action: 'select',
+                method: 'selectUserForgot',
+                rows: Ext.encode(form.getValues())
+            },
+            success: function() {
+                me.onInviteGoView();
+                view.setLoading(false);
+                form.reset();
+            },
+            failure: me.onFormSubmitFailure
+        });
     }
 
 });

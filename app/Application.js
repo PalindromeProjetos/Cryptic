@@ -16,7 +16,6 @@ Ext.define( 'Cryptic.Application', {
         var me = this;
 
         me.callParent();
-
         me.getController('App').redirectTo('login/comein');
     }
 

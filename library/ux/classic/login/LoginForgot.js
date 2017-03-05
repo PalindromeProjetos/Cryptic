@@ -67,8 +67,8 @@ Ext.define( 'Smart.ux.classic.login.LoginForgot', {
                         text: 'Enviar',
                         height: 40,
                         formBind: true,
-                        style: { color: 'white;' },
-                        listeners: { click: 'onForgotSend' }
+                        style: { color: 'white;' }
+                        // listeners: { click: 'onForgotSend' }
                     }, {
                         margin: '20 0 0 0',
                         xtype: 'container',
@@ -77,9 +77,9 @@ Ext.define( 'Smart.ux.classic.login.LoginForgot', {
                                 xtype: 'label',
                                 router: 'login/comein',
                                 text: 'Login de acesso!',
-                                listeners: {
-                                    click: 'onChangeRouter'
-                                },
+                                // listeners: {
+                                //     click: 'onChangeRouter'
+                                // },
                                 style: {
                                     cursor: 'pointer;',
                                     textDecoration: 'underline;'
@@ -94,9 +94,9 @@ Ext.define( 'Smart.ux.classic.login.LoginForgot', {
                                 xtype: 'label',
                                 router: 'login/invite',
                                 text: 'Código de ativação...',
-                                listeners: {
-                                    click: 'onChangeRouter'
-                                },
+                                // listeners: {
+                                //     click: 'onChangeRouter'
+                                // },
                                 style: {
                                     cursor: 'pointer;',
                                     textDecoration: 'underline;'
