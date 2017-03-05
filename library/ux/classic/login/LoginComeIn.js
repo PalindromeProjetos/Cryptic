@@ -73,8 +73,6 @@ Ext.define( 'Smart.ux.classic.login.LoginComeIn', {
                         height: 40,
                         formBind: true,
                         name: 'comeinsend'
-                        // style: { color: 'white;' },
-                        // listeners: { click: 'onComeInSend' }
                     }, {
                         margin: '20 0 0 0',
                         xtype: 'container',
@@ -83,9 +81,6 @@ Ext.define( 'Smart.ux.classic.login.LoginComeIn', {
                                 xtype: 'label',
                                 router: 'login/forgot',
                                 text: 'Esqueci minha senha!',
-                                // listeners: {
-                                //     click: 'onChangeRouter'
-                                // },
                                 style: {
                                     cursor: 'pointer;',
                                     textDecoration: 'underline;'
@@ -100,9 +95,6 @@ Ext.define( 'Smart.ux.classic.login.LoginComeIn', {
                                 xtype: 'label',
                                 router: 'login/invite',
                                 text: 'Código de ativação...',
-                                // listeners: {
-                                //     click: 'onChangeRouter'
-                                // },
                                 style: {
                                     cursor: 'pointer;',
                                     textDecoration: 'underline;'
@@ -113,59 +105,6 @@ Ext.define( 'Smart.ux.classic.login.LoginComeIn', {
                 ]
             }
         ];
-    },
-
-    dockedItems_: [
-        {
-            xtype: 'panel',
-            dock: 'bottom',
-            layout: 'anchor',
-            bodyStyle: 'padding-top: 20px;',
-            style: {
-                borderTop: 'dotted 1px #cecece'
-            },
-            defaultType: 'button',
-            defaults: {
-                anchor: '100%',
-                scale: 'large'
-            },
-            items: [
-                {
-                    xtype: 'container'
-                }, {
-                    text: 'Login',
-                    formBind: true,
-                    showSmartTheme: 'blue',
-                    listeners: {
-                        click: 'onComeInSend'
-                    }
-                }, {
-                    xtype: 'splitter'
-                }, {
-                    xtype: 'label',
-                    text: 'Esqueci minha senha!',
-                    listeners: {
-                        click: 'onForgotGoView'
-                    },
-                    style: {
-                        cursor: 'pointer;',
-                        textDecoration: 'underline;'
-                    }
-                }, {
-                    xtype: 'splitter'
-                }, {
-                    xtype: 'label',
-                    text: 'Código de ativação...',
-                    listeners: {
-                        click: 'onInviteGoView'
-                    },
-                    style: {
-                        cursor: 'pointer;',
-                        textDecoration: 'underline;'
-                    }
-                }
-            ]
-        }
-    ]
+    }
 
 });

@@ -5,10 +5,7 @@ Ext.define( 'Cryptic.view.login.Login', {
     xtype: 'app-login',
 
     requires: [
-        'Smart.ux.classic.login.Login',
-        'Cryptic.view.main.MainController'
-    ],
-
-    controller: 'main'
+        'Smart.ux.classic.login.Login'
+    ]
 
 });

@@ -33,20 +33,6 @@ Ext.define( 'Smart.ux.classic.login.Login', {
 
     items: [
         {
-        //     flex: 1,
-        //     minHeight: 128,
-        //     xtype: 'container',
-        //     layout: 'center',
-        //     cls: 'x-dock-over',
-        //     items: [
-        //         {
-        //             width: 128,
-        //             height: 128,
-        //             xtype: 'image',
-        //             src: '/cryptic/resources/img/Cryptic2.png'
-        //         }
-        //     ]
-        // }, {
             flex: 1,
             xtype: 'container',
             layout: 'center',

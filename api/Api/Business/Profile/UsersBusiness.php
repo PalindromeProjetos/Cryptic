@@ -58,6 +58,11 @@ class UsersBusiness extends Business
 
             $success = self::tryHash($password,$rows->password);
 
+            if($success == false) {
+                $result->setStatus(401);
+                throw new \Exception("Credencial inválida!");
+            }
+
             $date = new \DateTime();
 
             $date->modify('+ 1 days');

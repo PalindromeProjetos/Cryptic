@@ -3,8 +3,8 @@ Ext.define( 'Cryptic.controller.App', {
     extend: 'Smart.app.ControllerBase',
 
     views: [
-        'main.Main',
-        'login.Login'
+        'Cryptic.view.main.Main',
+        'Cryptic.view.login.Login'
     ],
 
     routes: {
@@ -21,11 +21,11 @@ Ext.define( 'Cryptic.controller.App', {
 
     refs: [
         {
-            ref: 'login',
-            selector: 'app-login'
-        }, {
             ref: 'main',
             selector: 'app-main'
+        }, {
+            ref: 'login',
+            selector: 'app-login'
         }
     ],
 

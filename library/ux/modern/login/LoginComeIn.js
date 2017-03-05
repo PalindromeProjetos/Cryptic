@@ -52,11 +52,7 @@ Ext.define( 'Smart.ux.modern.login.LoginComeIn', {
                 {
                     text: 'Sign In',
                     ui: 'action',
-                    height: 40,
-                    autoCapitalize: false,
-                    handler: function(){
-                        console.info(this);
-                    }
+                    height: 40
                 }
             ]
         }
