@@ -4,19 +4,15 @@ Ext.define( 'Smart.ux.classic.login.Login', {
 
     requires: [
         'Ext.panel.Panel',
-        'Ext.plugin.Viewport',
         'Ext.container.Container',
 
         'Smart.ux.classic.login.LoginComeIn',
         'Smart.ux.classic.login.LoginForgot'
     ],
 
-    plugins: 'viewport',
+    plain: true,
 
-    layout: {
-        type: 'vbox',
-        align: 'stretch'
-    },
+    layout: 'center',
 
     headerPosition: 'bottom',
 
@@ -33,13 +29,11 @@ Ext.define( 'Smart.ux.classic.login.Login', {
 
     items: [
         {
-            flex: 1,
             xtype: 'container',
             layout: 'center',
             items: [
                 {
                     xtype: 'container',
-                    layout: 'fit',
                     width: '20%',
                     minWidth: 300,
                     maxWidth: 350,

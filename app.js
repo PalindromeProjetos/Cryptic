@@ -8,7 +8,6 @@ Ext.Loader.setConfig({
         'Smart.data.field': 'library/data/field',
         'Smart.ux.app': 'library/ux/app',
 
-
         'Smart.ux.classic.main': 'library/ux/classic/main',
         'Smart.ux.classic.login': 'library/ux/classic/login',
         

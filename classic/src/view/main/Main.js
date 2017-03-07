@@ -5,7 +5,10 @@ Ext.define( 'Cryptic.view.main.Main', {
     xtype: 'app-main',
 
     requires: [
+        'Ext.plugin.Viewport',
         'Smart.ux.classic.main.Main'
-    ]
+    ],
+
+    plugins: 'viewport'
 
 });

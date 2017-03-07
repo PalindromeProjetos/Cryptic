@@ -3,22 +3,38 @@ Ext.define( 'Smart.ux.classic.main.Main', {
     extend: 'Ext.panel.Panel',
 
     requires: [
+        'Ext.grid.Panel',
+        'Ext.data.Store',
         'Ext.panel.Panel',
-        'Ext.plugin.Viewport',
         'Ext.container.Container'
     ],
 
-    plugins: 'viewport',
+    plain: true,
 
-    plain: true
+    layout: 'center',
 
-    // layout: 'border',
-    //
-    // initComponent: function () {
-    //     var me = this;
-    //     me.makeDocked();
-    //     me.buildItems();
-    //     me.callParent();
-    // }
+    headerPosition: 'bottom',
+
+    header: {
+        title: Ext.manifest.name,
+        items: [
+            {
+                xtype: 'label',
+                text: Ext.manifest.version,
+                style: { color: 'white;' }
+            }
+        ]
+    },
+
+    items: [
+        {
+            xtype: 'container',
+            layout: 'center',
+            items: [
+                {
+                }
+            ]
+        }
+    ]
 
 });

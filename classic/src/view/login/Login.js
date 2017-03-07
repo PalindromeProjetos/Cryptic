@@ -5,7 +5,10 @@ Ext.define( 'Cryptic.view.login.Login', {
     xtype: 'app-login',
 
     requires: [
+        'Ext.plugin.Viewport',
         'Smart.ux.classic.login.Login'
-    ]
+    ],
+
+    plugins: 'viewport'
 
 });

@@ -4,6 +4,14 @@ Ext.define( 'Cryptic.Application', {
     
     name: 'Cryptic',
 
+    controllers: [
+        'Cryptic.controller.App'
+    ],
+
+    stores: [
+        'Cryptic.store.profile.Users'
+    ],
+
     launch: function () {
         var me = this;
 

@@ -108,24 +108,6 @@ Ext.define( 'Cryptic.controller.App', {
             return false;
         }
 
-        view.setLoading('Gerando senha convite...');
-
-        form.submit({
-            scope: me,
-            url: me.url,
-            clientValidation: true,
-            params: {
-                action: 'select',
-                method: 'selectUserForgot',
-                rows: Ext.encode(form.getValues())
-            },
-            success: function() {
-                me.onInviteGoView();
-                view.setLoading(false);
-                form.reset();
-            },
-            failure: me.onFormSubmitFailure
-        });
     }
 
 });
