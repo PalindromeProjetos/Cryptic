@@ -32,6 +32,19 @@ Ext.define( 'Smart.ux.classic.main.Main', {
             layout: 'center',
             items: [
                 {
+                    xtype: 'container',
+                    width: '30%',
+                    minWidth: 500,
+                    maxWidth: 550,
+                    layout: 'card',
+                    items: [
+                        {
+                            title: Ext.manifest.made,
+                            xtype: 'panel'
+                        }, {
+
+                        }
+                    ]
                 }
             ]
         }

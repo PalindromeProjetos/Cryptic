@@ -5,7 +5,9 @@
     "name": "Cryptic",
 
     "routeBase": "api/app.php",
-    
+
+    "made": "Palindrome Projetos",
+
     /**
      * The version of the application.
      */
@@ -217,6 +219,9 @@
     "js": [
         {
             "path": "app.js",
+            "bundle": true
+        }, {
+            "path": "library/vendor/jwt/jsrsasign-latest-all-min.js",
             "bundle": true
         }
     ],
