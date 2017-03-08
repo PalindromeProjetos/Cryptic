@@ -8,10 +8,6 @@ Ext.define( 'Cryptic.Application', {
         'Cryptic.controller.App'
     ],
 
-    // stores: [
-    //     'Cryptic.store.profile.Users'
-    // ],
-
     launch: function () {
         var me = this;
         me.callParent(arguments);

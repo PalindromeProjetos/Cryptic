@@ -8,10 +8,13 @@ Ext.define( 'Cryptic.view.main.Main', {
     requires: [
         'Ext.list.Tree',
         'Ext.plugin.Viewport',
-        'Smart.ux.classic.main.Main'
+        'Smart.ux.classic.main.Main',
+        'Cryptic.view.main.MainController'
     ],
 
     plugins: 'viewport',
+
+    controller: 'main',
 
     layout: 'border',
 
@@ -62,6 +65,9 @@ Ext.define( 'Cryptic.view.main.Main', {
             region: 'west',
             xtype: 'treelist',
             title: 'OlaMundo',
+            listeners: {
+                selectionchange: 'onChangeRouter'
+            },
             store: {
                 root: {
                     expanded: true,

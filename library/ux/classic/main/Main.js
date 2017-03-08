@@ -6,7 +6,8 @@ Ext.define( 'Smart.ux.classic.main.Main', {
         'Ext.grid.Panel',
         'Ext.data.Store',
         'Ext.panel.Panel',
-        'Ext.container.Container'
+        'Ext.container.Container',
+
     ],
 
     plain: true,
