@@ -11,7 +11,9 @@ Ext.define( 'Smart.ux.classic.main.Main', {
 
     plain: true,
 
-    layout: 'center',
+    //layout: 'center',
+
+    layout: 'fit',
 
     headerPosition: 'bottom',
 
@@ -26,7 +28,7 @@ Ext.define( 'Smart.ux.classic.main.Main', {
         ]
     },
 
-    items: [
+    items_: [
         {
             xtype: 'container',
             layout: 'center',

@@ -70,12 +70,16 @@ Ext.define( 'Smart.ux.classic.login.LoginComeIn', {
                     }, {
                         xtype: 'button',
                         text: 'Sign In',
-                        height: 40,
+                        scale: "small",
                         formBind: true,
                         name: 'comeinsend'
                     }, {
                         margin: '20 0 0 0',
                         xtype: 'container',
+                        style: {
+                            fontSize: '14px;',
+                            lineHeight: '20px;'
+                        },
                         items:[
                             {
                                 xtype: 'label',
@@ -90,6 +94,10 @@ Ext.define( 'Smart.ux.classic.login.LoginComeIn', {
                     }, {
                         margin: '3 0 0 0',
                         xtype: 'container',
+                        style: {
+                            fontSize: '14px;',
+                            lineHeight: '20px;'
+                        },
                         items:[
                             {
                                 xtype: 'label',

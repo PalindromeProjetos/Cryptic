@@ -4,18 +4,17 @@ Ext.define( 'Cryptic.Application', {
     
     name: 'Cryptic',
 
-    controllers: [
+    requires: [
         'Cryptic.controller.App'
     ],
 
-    stores: [
-        'Cryptic.store.profile.Users'
-    ],
+    // stores: [
+    //     'Cryptic.store.profile.Users'
+    // ],
 
     launch: function () {
         var me = this;
-
-        me.callParent();
+        me.callParent(arguments);
         me.getController('App').redirectTo('login/comein');
     }
 

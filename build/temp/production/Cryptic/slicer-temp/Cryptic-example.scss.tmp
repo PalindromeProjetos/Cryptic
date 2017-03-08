@@ -1,6 +1,6 @@
 $app-name:  dynamic( 'Cryptic' );
 $image-search-path: 'C:/Users/samuc/Documents/Palindrome/Cryptic/build/production/Cryptic/classic/resources';
-$theme-name:  dynamic( 'theme-triton' );
+$theme-name:  dynamic( 'Cryptic' );
 $include-cryptic-application: dynamic(true);;
 $include-cryptic-controller-app: dynamic(true);;
 $include-cryptic-model-client-client: dynamic(true);;
@@ -1022,6 +1022,14 @@ $relative-image-path-for-uis: $theme-triton-resource-path;
 /* including package Cryptic */
 $Cryptic-resource-root: '' !default;
 $Cryptic-resource-path: 'images' !default;
+$current-package: 'Cryptic';
+$current-resource-root: $Cryptic-resource-root;
+$relative-image-path-for-uis: $Cryptic-resource-path;
+@import '../../../../../packages/local/Cryptic/sass/etc/all';
+
+/* including package Cryptic */
+$Cryptic-resource-root: '' !default;
+$Cryptic-resource-path: 'images' !default;
 $current-package: false;
 $current-resource-root: $Cryptic-resource-root;
 $relative-image-path-for-uis: $Cryptic-resource-path;
@@ -1206,10 +1214,18 @@ $relative-image-path-for-uis: $theme-triton-resource-path;
 /* including package Cryptic */
 $Cryptic-resource-root: '' !default;
 $Cryptic-resource-path: 'images' !default;
-$current-package: false;
+$current-package: 'Cryptic';
 $current-resource-root: $Cryptic-resource-root;
 $relative-image-path-for-uis: $Cryptic-resource-path;
-@import '../../../../../sass/var/all';
+@import '../../../../../packages/local/Cryptic/classic/sass/var/sencha-themer-defaults';
+
+/* including package Cryptic */
+$Cryptic-resource-root: '' !default;
+$Cryptic-resource-path: 'images' !default;
+$current-package: 'Cryptic';
+$current-resource-root: $Cryptic-resource-root;
+$relative-image-path-for-uis: $Cryptic-resource-path;
+@import '../../../../../packages/local/Cryptic/classic/sass/save';
 
 /* including package Cryptic */
 $Cryptic-resource-root: '' !default;
@@ -1217,7 +1233,7 @@ $Cryptic-resource-path: 'images' !default;
 $current-package: false;
 $current-resource-root: $Cryptic-resource-root;
 $relative-image-path-for-uis: $Cryptic-resource-path;
-@import '../../../../../classic/sass/var/Application';
+@import '../../../../../sass/var/all';
 
 
 /* ======================== RULE ======================== */

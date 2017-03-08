@@ -2,10 +2,6 @@
 Ext.define( 'Smart.ux.app.Application', {
     extend: 'Ext.app.Application',
 
-     requires: [
-         'Ext.app.Application'
-     ],
-
      init: function () {
          Ext.USE_NATIVE_JSON = true;
          Ext.manifest.appType = 'pro';
@@ -14,8 +10,8 @@ Ext.define( 'Smart.ux.app.Application', {
 
      launch: function () {
          //<debug>
-         Ext.manifest.appType = 'dev';
-         document.cookie = 'XDEBUG_SESSION=PHPSTORM;path=/;';
+             Ext.manifest.appType = 'dev';
+             document.cookie = 'XDEBUG_SESSION=PHPSTORM;path=/;';
          //</debug>
      }
 

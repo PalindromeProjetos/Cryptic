@@ -8,24 +8,23 @@ Ext.define( 'Ext.overrides.form.field.Base', {
 
     enabledENTER: true,
     useLabelBold: true,
-    useMondaFont: false,
     useReadColor: false,
     setTextAlign: false,
     useUpperCase: false,
 
-    initComponent: function () {
+    initComponent_: function () {
         var me = this;
 
         me.callParent();
 
-        me.setLabelBold(me.useLabelBold);
+        // me.setLabelBold(me.useLabelBold);
 
         if (me.getXType() == 'displayfield') {
             return false;
         }
 
-        me.setMondaFont(me.useMondaFont);
-        me.setReadColor(me.useReadColor);
+        // me.setMondaFont(me.useMondaFont);
+        // me.setReadColor(me.useReadColor);
 
         // me.onBefore( 'specialkey', me.fnSecialKey, me);
         me.onAfter( 'afterrender', me.fnAfterRender, me);
@@ -75,14 +74,14 @@ Ext.define( 'Ext.overrides.form.field.Base', {
      *
      * @param value boolean
      */
-    setMondaFont: function ( value ) {
-        var me = this;
-
-        if(me.fieldStyle) {
-            var fieldStyle = Ext.Object.merge(me.fieldStyle, ( value === true ? { 'font-family' : 'Monda' } : me.fieldStyle ));
-            me.setFieldStyle(fieldStyle);
-        }
-    },
+    // setMondaFont: function ( value ) {
+    //     var me = this;
+    //
+    //     if(me.fieldStyle) {
+    //         var fieldStyle = Ext.Object.merge(me.fieldStyle, ( value === true ? { 'font-family' : 'Monda' } : me.fieldStyle ));
+    //         me.setFieldStyle(fieldStyle);
+    //     }
+    // },
 
     objectMerge: function (target, source) {
         var me = this;
@@ -113,19 +112,19 @@ Ext.define( 'Ext.overrides.form.field.Base', {
         }
 
         return target;
-    },
+    }
 
     /**
      * Atribui ReadOnly e muda a cor de fundo
      *
      * @param value boolean
      */
-    setReadColor: function ( value ) {
-        var me = this,
-            fieldStyle = me.objectMerge(me.fieldStyle,{ 'background-color' : ( value === true ? 'rgb(255, 239, 187)' : '#FFFFFF' ) });
-
-        me.setReadOnly(value);
-        me.setFieldStyle(fieldStyle);
-    }
+    // setReadColor: function ( value ) {
+    //     var me = this,
+    //         fieldStyle = me.objectMerge(me.fieldStyle,{ 'background-color' : ( value === true ? 'rgb(255, 239, 187)' : '#FFFFFF' ) });
+    //
+    //     me.setReadOnly(value);
+    //     me.setFieldStyle(fieldStyle);
+    // }
 
 });

@@ -65,11 +65,15 @@ Ext.define( 'Smart.ux.classic.login.LoginForgot', {
                     }, {
                         xtype: 'button',
                         text: 'Enviar',
-                        height: 40,
+                        scale: "small",
                         formBind: true
                     }, {
                         margin: '20 0 0 0',
                         xtype: 'container',
+                        style: {
+                            fontSize: '14px;',
+                            lineHeight: '20px;'
+                        },
                         items:[
                             {
                                 xtype: 'label',
@@ -84,6 +88,10 @@ Ext.define( 'Smart.ux.classic.login.LoginForgot', {
                     }, {
                         margin: '3 0 0 0',
                         xtype: 'container',
+                        style: {
+                            fontSize: '14px;',
+                            lineHeight: '20px;'
+                        },
                         items:[
                             {
                                 xtype: 'label',
