@@ -947,6 +947,7 @@ $include-ext-view-view: dynamic(true);;
 $include-ext-window-messagebox: dynamic(true);;
 $include-ext-window-toast: dynamic(false);;
 $include-ext-window-window: dynamic(true);;
+$include-maskcore: dynamic(true);;
 $include-smart-app-controllerbase: dynamic(true);;
 $include-smart-app-viewcontrollerbase: dynamic(true);;
 $include-smart-data-modelbase: dynamic(true);;

@@ -34,7 +34,7 @@ Ext.define( 'Cryptic.view.main.MainController', {
                     var panelCenter = mainPage.down(mainPage.items.getAt(0));
                     mainPage.down(panelCenter.xtype).getEl().slideIn('l', {
                         easing: 'easeOut',
-                        duration: 5000
+                        duration: 300
                     });
                     // mainPage.down(panelCenter.xtype).removeCls(panelCenter.animateClsIn);
                     // mainPage.down(panelCenter.xtype).addCls(panelCenter.animateClsOut);
