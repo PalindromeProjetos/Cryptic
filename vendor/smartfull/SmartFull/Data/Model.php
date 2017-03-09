@@ -55,11 +55,9 @@ class Model extends ObjectBase implements ObjectBaseInterface, ModelInterface
 		return $entity;
 	}
 
-	public function hydrateModel(\stdClass $entity = null) {
+	public function hydrateModel(\stdClass $entity) {
 
 		// TODO: Implement Policy fields
-		if ($entity == null) { return; }
-
 		if ($entity instanceof \stdClass) {
 			foreach ($entity as $field=>$value) {
 				if(property_exists($this, $field)) {
