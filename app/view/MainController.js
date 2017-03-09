@@ -32,6 +32,10 @@ Ext.define( 'Cryptic.view.main.MainController', {
             if(mainPage) {
                 if(mainPage.items.getCount()) {
                     var panelCenter = mainPage.down(mainPage.items.getAt(0));
+                    mainPage.down(panelCenter.xtype).getEl().slideIn('l', {
+                        easing: 'easeOut',
+                        duration: 5000
+                    });
                     // mainPage.down(panelCenter.xtype).removeCls(panelCenter.animateClsIn);
                     // mainPage.down(panelCenter.xtype).addCls(panelCenter.animateClsOut);
                     Ext.defer(function () { updateRegion(); }, 300);

@@ -42,7 +42,8 @@ Ext.define( 'Cryptic.view.main.Main', {
             region: 'center',
             bodyPadding: 10,
             xtype: 'panel',
-            name: 'center'
+            name: 'center',
+            layout: 'fit'
         }
     ]
 
