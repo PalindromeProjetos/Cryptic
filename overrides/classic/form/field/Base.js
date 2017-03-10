@@ -451,7 +451,7 @@ Ext.define( 'Ext.overrides.form.field.Base', {
         }
     },
     getRawValue: function() {
-        return this.returnWithMask ? this.maskGetValue() : this.callParent();
+        return this.returnWithMask ? this.getValueWithMask() : this.callParent();
     },
     maskGetValue: function () {
         if (this.returnWithMask) {
