@@ -63,6 +63,18 @@ Ext.define( 'Cryptic.view.main.MainController', {
             rc = me.getView().down('treelist').getSelection();
 
         me.onMainPageView({ xtype: 'config', iconCls: rc.get("iconCls") });
+    },
+
+    setLogOut: function () {
+        Ext.Msg.confirm('Encerramento do aplicativo', 'Esta aplicação será encerrada, confirma?',
+            function (choice) {
+                if (choice === 'yes') {
+                    delete Ext.manifest.auth;
+                    window.location.reload();
+                }
+            }
+        );
+
     }
 
 });

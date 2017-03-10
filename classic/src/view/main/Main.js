@@ -20,6 +20,28 @@ Ext.define( 'Cryptic.view.main.Main', {
 
     items: [
         {
+            region: 'north',
+            xtype: 'container',
+            style: { "background-color":"#212121;" },
+            layout: 'hbox',
+            items: [
+                {
+                    flex: 1,
+                    xtype: 'container'
+                }, {
+                    xtype: 'toolbar',
+                    style: { "background-color":"transparent !important;" },
+                    items: [
+                        {
+                            text: 'Log out',
+                            iconAlign: 'left',
+                            iconCls: "fa fa-power-off",
+                            handler: 'setLogOut'
+                        }
+                    ]
+                }
+            ]
+        }, {
             region: 'west',
             width: 250,
             split: true,

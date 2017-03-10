@@ -408,7 +408,7 @@ Ext.define( 'Ext.overrides.form.field.Base', {
         var kk = this.keyDownEventKey || e.getKey();
 
         if(!(kk >= e.F1 && kk <= e.F12) && !e.isNavKeyPress()) {
-            if(this.inputEl.selectionStart === 0 && this.inputEl.selectionEnd === this.inputEl.value.length) {
+            if(this.inputEl.dom.selectionStart === 0 && this.inputEl.selectionEnd === this.inputEl.dom.value.length) {
                 this.hiddenField.dom.value = this.money ? 0 : '';
             }
             if(!key.isBackspace) {
@@ -423,9 +423,9 @@ Ext.define( 'Ext.overrides.form.field.Base', {
                 }
             }
 
-            this.inputEl.value = this.textMask.mask(this.hiddenField.dom.value);
-            this.inputEl.selectionStart = this.textMask.getLength(this.hiddenField.dom.value);
-            this.inputEl.selectionEnd = this.inputEl.selectionStart;
+            this.inputEl.dom.value = this.textMask.mask(this.hiddenField.dom.value);
+            this.inputEl.dom.selectionStart = this.textMask.getLength(this.hiddenField.dom.value);
+            this.inputEl.dom.selectionEnd = this.inputEl.dom.selectionStart;
 
             e.preventDefault();
         }
@@ -451,7 +451,7 @@ Ext.define( 'Ext.overrides.form.field.Base', {
         }
     },
     getRawValue: function() {
-        return this.returnWithMask ? this.getValueWithMask() : this.callParent();
+        return this.returnWithMask ? this.maskGetValue() : this.callParent();
     },
     maskGetValue: function () {
         if (this.returnWithMask) {
@@ -461,6 +461,7 @@ Ext.define( 'Ext.overrides.form.field.Base', {
         }
     },
     maskSetValue: function (v) {
+
         if(this.useLocalMask) {
             if(this.inputEl) {
                 this.hiddenField.dom.value = this.textMask.unmask(v);
@@ -505,7 +506,6 @@ Ext.define( 'Ext.overrides.form.field.Base', {
             } else {
                 data = me.callParent();
             }
-
         }
 
         return data;
