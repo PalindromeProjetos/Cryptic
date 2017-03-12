@@ -1,6 +1,6 @@
 //@charset UTF-8
 Ext.define( 'Cryptic.store.client.ClientModule', {
-    extend: 'Ext.data.Store',
+    extend: 'Smart.data.StoreBase',
 
     alias: 'store.clientmodule',
 

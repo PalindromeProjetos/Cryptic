@@ -32,10 +32,6 @@ class Controller implements ControllerInterface
 
         $this->request = $request;
         $this->response = $response;
-
-        $auth = $this->request->getHeader('Authorization');
-        //"users/auth"
-
     }
 
     public function getRoutes() : array {

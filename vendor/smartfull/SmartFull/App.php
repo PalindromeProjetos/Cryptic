@@ -82,6 +82,10 @@ class App extends \Slim\App
                 self::$controllers->hasRoutesConflict();
             }
 
+//            TODO: Validar token/route
+//            $auth = $request->getHeader('Authorization');
+//            "users/auth"
+
             $mapping = self::$controllers->hydratedRoute($request);
 
             $class   = $mapping->instance['Name'];

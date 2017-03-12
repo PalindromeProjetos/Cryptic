@@ -49,7 +49,9 @@ class ClientController extends Controller
      * }
      */
     public function getById(int $id) : ResultSet {
+
         $result = $this->clientBusiness->get($id);
+
         return $result;
     }
 

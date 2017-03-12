@@ -2,40 +2,44 @@
 Ext.define( 'Cryptic.view.config.Configs', {
     extend: 'Ext.panel.Panel',
 
-    xtype: 'config',
+    xtype: 'configs',
 
     requires: [
         'Ext.grid.Panel',
-        'Cryptic.view.main.MainController'
+        'Cryptic.view.config.ConfigsController'
     ],
 
-    controller: 'main',
-
-    title: Ext.manifest.name,
+    controller: 'configs',
 
     layout: 'fit',
 
     showSmartAnimate: true,
 
-    items: [
-        {
-            xtype: 'gridpanel',
-            store: Ext.create('Ext.data.Store', {
-                fields:[ 'name', 'email', 'phone'],
-                data: [
-                    { name: 'Lisa', email: 'lisa@simpsons.com', phone: '555-111-1224' },
-                    { name: 'Bart', email: 'bart@simpsons.com', phone: '555-222-1234' },
-                    { name: 'Homer', email: 'homer@simpsons.com', phone: '555-222-1244' },
-                    { name: 'Marge', email: 'marge@simpsons.com', phone: '555-222-1254' }
+    initComponent: function () {
+        var me = this;
+
+        me.buildItems();
+        me.callParent();
+    },
+
+    buildItems: function () {
+        var me = this,
+            clientModule = Ext.create('Cryptic.store.client.ClientModule');
+
+        me.items = [
+            {
+                xtype: 'gridpanel',
+                store: clientModule,
+                columns: [
+                    {
+                        flex: 1,
+                        text: 'Nome',
+                        dataIndex: 'modulename'
+                    }
                 ]
-            }),
-            columns: [
-                { text: 'Name', dataIndex: 'name' },
-                { text: 'Email', dataIndex: 'email', flex: 1 },
-                { text: 'Phone', dataIndex: 'phone' }
-            ]
-        }
-    ],
+            }
+        ];
+    },
 
     buttons: [
         {

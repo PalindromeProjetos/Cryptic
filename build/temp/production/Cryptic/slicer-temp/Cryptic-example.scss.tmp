@@ -16,6 +16,7 @@ $include-cryptic-store-profile-users: dynamic(true);;
 $include-cryptic-store-project-module: dynamic(true);;
 $include-cryptic-store-project-project: dynamic(true);;
 $include-cryptic-view-config-configs: dynamic(true);;
+$include-cryptic-view-config-configscontroller: dynamic(true);;
 $include-cryptic-view-login-login: dynamic(true);;
 $include-cryptic-view-main-main: dynamic(true);;
 $include-cryptic-view-main-maincontroller: dynamic(true);;

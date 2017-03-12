@@ -7,7 +7,7 @@ Ext.define( 'Cryptic.model.client.ClientModule', {
     ],
 
     route: {
-        module:'clients/modules/{clientid}'
+        modules:'clients/modules/{clientid}'
     },
 
     routePrefix: 'clients',

@@ -8,6 +8,7 @@ Ext.define( 'Smart.app.ViewControllerBase', {
             cmp = mainPage ? mainPage.down(config.xtype) : null,
             updateRegion = function () {
                 config.id = config.xtype;
+
                 if(mainPage.items) mainPage.removeAll();
 
                 cmp = mainPage.add( config );

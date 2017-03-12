@@ -5,34 +5,16 @@ Ext.define( 'Smart.data.StoreBase', {
     pageSize: 10,
 
     requires: [
-        'Smart.data.proxy.AjaxBase'
+        'Smart.data.ModelBase'
     ],
 
-    proxy: {
-        type: 'ajaxbase'
-    },
+    model: Ext.create('Smart.data.ModelBase'),
 
-    constructor: function (config) {
-        var me = this;
+    getRouteList: function () {
+        var me = this,
+            model = Ext.isFunction(me.model) ? (new me.model) : me.model;
 
-        me.callParent();
-        me.getProxy().setUrl((config) ? config.url : me.url);
-        me.getProxy().setApiUrl();
-
-        me.onBefore( 'write', me.fnWrite, me);
-        me.onBefore( 'beforeload', me.fnBeforeLoad, me);
-    },
-
-    fnBeforeLoad: function (store, operation, eOpts) {
-        var me = store;
-        me.removeAll();
-        me.getProxy().setExtraParams(me.getExtraParams());
-    },
-
-    fnWrite: function (store, operation, eOpts) {
-        var result = operation.getResultSet();
-
-        return result.getSuccess();
+        return model.getRouteList();
     }
 
 });

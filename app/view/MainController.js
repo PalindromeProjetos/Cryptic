@@ -4,11 +4,6 @@ Ext.define( 'Cryptic.view.main.MainController', {
 
     alias: 'controller.main',
 
-    requires: [
-        'Smart.app.ViewControllerBase',
-        'Cryptic.store.client.ClientModule'
-    ],
-
     routes: {
         'app/configs': {
             action: 'onShowConfigs'
@@ -27,7 +22,8 @@ Ext.define( 'Cryptic.view.main.MainController', {
         var me = this,
             rc = me.getView().down('treelist').getSelection();
 
-        me.onMainPageView({ xtype: 'config', iconCls: rc.get("iconCls") });
+        me.onMainPageView({ xtype: 'configs' });
+        // me.onMainPageView({ xtype: 'config', iconCls: rc.get("iconCls") });
     },
 
     setMicro: function (button, pressed) {
@@ -55,17 +51,6 @@ Ext.define( 'Cryptic.view.main.MainController', {
             }
         );
 
-    },
-
-    onLoadModule: function (button) {
-        var store = Ext.getStore('ClientModule') || Ext.create('Cryptic.store.client.ClientModule'),
-            model = store.getModel(),
-            route = (new model).getRouteList().route.module;
-
-        //TODO: Herdar Rotas do Model=>Store
-
-        store.getProxy().setRoute(route.replace('{clientid}',1));
-        store.load();
     }
 
 });
