@@ -6,12 +6,11 @@ Ext.define( 'Cryptic.view.config.Configs', {
 
     requires: [
         'Ext.grid.Panel',
+        'Ext.form.field.ComboBox',
         'Cryptic.view.config.ConfigsController'
     ],
 
     controller: 'configs',
-
-    layout: 'fit',
 
     showSmartAnimate: true,
 
@@ -24,10 +23,29 @@ Ext.define( 'Cryptic.view.config.Configs', {
 
     buildItems: function () {
         var me = this,
+            client = Ext.create('Cryptic.store.client.Client'),
             clientModule = Ext.create('Cryptic.store.client.ClientModule');
 
         me.items = [
             {
+                xtype: 'container',
+                html: 'Modulos registrados no sistema'
+            }, {
+                xtype: 'combobox',
+                store: {
+                    fields: ['abbr', 'name'],
+                    data : [
+                        {"abbr":"AL", "name":"Alabama"},
+                        {"abbr":"AK", "name":"Alaska"},
+                        {"abbr":"AZ", "name":"Arizona"}
+                    ]
+                },
+                fieldLabel: 'Choose State',
+                queryMode: 'local',
+                displayField: 'name',
+                valueField: 'abbr',
+                pageSize: 0
+            }, {
                 xtype: 'gridpanel',
                 store: clientModule,
                 columns: [
