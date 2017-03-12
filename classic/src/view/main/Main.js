@@ -33,7 +33,11 @@ Ext.define( 'Cryptic.view.main.Main', {
                     style: { "background-color":"transparent !important;" },
                     items: [
                         {
-                            text: 'Log out',
+                            // allowDepress: false,
+                            enableToggle: true,
+                            iconCls: "fa fa-bars",
+                            toggleHandler: 'setMicro'
+                        }, {
                             iconAlign: 'left',
                             iconCls: "fa fa-power-off",
                             handler: 'setLogOut'
@@ -48,8 +52,6 @@ Ext.define( 'Cryptic.view.main.Main', {
             layout: 'fit',
             border: false,
             scrollable: 'y',
-            iconCls: "fa fa-dribbble",
-            title: Ext.manifest.name,
             items: [
                 {
                     xtype: 'treelist',

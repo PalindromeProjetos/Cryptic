@@ -14,42 +14,6 @@ Ext.define( 'Cryptic.view.main.MainController', {
         }
     },
 
-    onMainPageView: function(config, fn) {
-        var me = this,
-            mainPage = me.getView().down('panel[name=center]'),
-            cmp = mainPage ? mainPage.down(config.xtype) : null,
-            updateRegion = function () {
-                config.id = config.xtype;
-                if(mainPage.items) mainPage.removeAll();
-                cmp = mainPage.add( config );
-
-                if (Ext.isFunction( fn ) == true) {
-                    fn();
-                }
-            };
-
-        try {
-            if(mainPage) {
-                if(mainPage.items.getCount()) {
-                    var panelCenter = mainPage.down(mainPage.items.getAt(0));
-                    mainPage.down(panelCenter.xtype).getEl().slideIn('l', {
-                        easing: 'easeOut',
-                        duration: 300
-                    });
-                    // mainPage.down(panelCenter.xtype).removeCls(panelCenter.animateClsIn);
-                    // mainPage.down(panelCenter.xtype).addCls(panelCenter.animateClsOut);
-                    Ext.defer(function () { updateRegion(); }, 300);
-                }
-                else updateRegion();
-            }
-            return cmp;
-        }
-        catch(err) {
-            console.info(err);
-            return cmp;
-        }
-    },
-
     onChangeRouter: function(rm, rc) {
         var me = this,
             router = rc ? rc.get('router') : null;
@@ -63,6 +27,21 @@ Ext.define( 'Cryptic.view.main.MainController', {
             rc = me.getView().down('treelist').getSelection();
 
         me.onMainPageView({ xtype: 'config', iconCls: rc.get("iconCls") });
+    },
+
+    setMicro: function (button, pressed) {
+        var me = this,
+            tl = me.getView().down('treelist'),
+            ct = tl.ownerCt;
+
+        tl.setMicro(pressed);
+
+        if (pressed) {
+            me.oldWidth = ct.width;
+            ct.setWidth(32);
+        } else {
+            ct.setWidth(me.oldWidth);
+        }
     },
 
     setLogOut: function () {

@@ -55,18 +55,49 @@ class Model extends ObjectBase implements ObjectBaseInterface, ModelInterface
 		return $entity;
 	}
 
-	public function hydrateModel(\stdClass $entity) {
-
-		// TODO: Implement Policy fields
-		if ($entity instanceof \stdClass) {
-			foreach ($entity as $field=>$value) {
-				if(property_exists($this, $field)) {
-					$this->$field = $value;
-				}
-			}			
+	protected function hydrateModel(\stdClass $entity) {	
+		
+		if !($entity instanceof \stdClass) { return; }
+				
+		foreach ($entity as $field=>$value) {
+			if(property_exists($this, $field)) {
+				$this->$field = $value;
+			}
 		}
+			
+		//$this->policy();
 
 	}
+
+    protected function policy() {
+        $notate = $this->_notate;
+		
+		//http://php.net/manual/en/language.oop5.typehinting.php
+		
+		//function teststring(string $string) { echo $string; }
+		//function testinteger(integer $integer) { echo $integer; }
+		//function testfloat(float $float) { echo $float; }
+
+        $fields = self::arrayToObject($notate->property);
+
+        foreach ($this as $field => $value) {
+            $column = isset($fields->$field) ? $fields->$field : false;
+            $hasPolicy = ( isset($column) && isset($column->Column->policy) );
+
+            if( $hasPolicy )  {
+                foreach ($column->Policy as $key => $policy) {
+                    $method = $key . "Policy";
+                    $result = $this->$method($policy,$value);
+                    if ( $result->passed === false ) {
+                        throw new \PDOException("<b>{$column->Column->description}</b> <br/>{$result->message}");
+                    }
+                }
+            }
+        }
+
+        unset($submit);
+        unset($notate);
+    }
 
 }
 /*

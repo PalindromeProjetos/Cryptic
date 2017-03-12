@@ -15,11 +15,12 @@ Ext.define( 'Cryptic.view.config.Configs', {
 
     layout: 'fit',
 
+    showSmartAnimate: true,
+
     items: [
         {
             xtype: 'gridpanel',
             store: Ext.create('Ext.data.Store', {
-                storeId: 'simpsonsStore',
                 fields:[ 'name', 'email', 'phone'],
                 data: [
                     { name: 'Lisa', email: 'lisa@simpsons.com', phone: '555-111-1224' },

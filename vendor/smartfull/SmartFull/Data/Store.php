@@ -51,13 +51,13 @@ class Store
     public function sqlSelect( ModelInterface &$model ) : \PDOStatement {
         $fields = array();
         $notate = $model->getNotate();
-        $table  = $notate->instance['Entity']->table;
+        $entity  = $notate->instance['Entity']->table;
 
         foreach ($model as $field => $value) {
             $fields[] = $this->fieldType($notate,$field);
         }
 
-        $sql = "SELECT " . trim(implode(', ', $fields)) . " FROM {$table} WHERE id = :id";
+        $sql = "SELECT " . trim(implode(', ', $fields)) . " FROM {$entity} WHERE id = :id";
 
         return $this->bindField($model,$sql,self::DML_SELECT);
     }
@@ -66,64 +66,53 @@ class Store
      * @param ModelInterface $model
      * @return \PDOStatement
      */
-    public function sqlUpdate( ModelInterface &$model ) : \PDOStatement {
-        $table  = $model->getNotate()->instance['Entity']->table;
+    public function sqlUpdate( ModelInterface &$model ) : ?\PDOStatement {
+        $notate = $model->getNotate();
+		$entity = $notate->instance['Entity']->table;
 
         $modify = 0;
         $fields = array();
 
         foreach ($model as $field => $value) {
             if($field != "id" && strlen($value) != 0) {
+                $modify++;				
                 $fields[] = "$field = :$field";
-                $modify++;
             }
         }
 
-        $sql = "UPDATE {$table} SET " . trim(implode(', ', $fields)) . " WHERE id = :id";
+        $sql = "UPDATE {$entity} SET " . trim(implode(', ', $fields)) . " WHERE id = :id";
 
-        return $modify === 0 ? null : $this->bindField($model,$sql,self::DML_UPDATE);
+        return $modify == 0 ? null : $this->bindField($model,$sql,self::DML_UPDATE);
     }
 
     /**
      * @param ModelInterface $model
      * @return \PDOStatement
      */
-    public function sqlInsert( ModelInterface &$model ) : \PDOStatement {
-        $table  = $model->getNotate()->instance['Entity']->table;
+    public function sqlInsert( ModelInterface &$model ) : ?\PDOStatement {
+		$notate = $model->getNotate();
+        $entity = $notate->instance['Entity']->table;
 
         $modify = 0;
-        $fields = $values = array();
-        $submit = $model->getSubmit();
-        $notate = $model->getNotate();
+        $fields = array();
+		$values = array();
+		
         $exists = $notate->property;
-        $extend = $notate->instance->Entity->name;
 
         foreach ($model as $field => $value) {
             $column = $exists[$field]["Column"];
-            $strategy = isset($column->strategy) ? $column->strategy === "AUTO" : false;
-            if($field != "id" && strlen($value) != 0) {
+            $strategy = isset($column->strategy) ? $column->strategy == "AUTO" : false;
+
+            if(($strategy == false)&&($column->type != 'formula')&&(strlen($value) != 0)) {
                 $modify++;
-                $fields[] = "$field = :$field";
+                $fields[] = " $field";
+                $values[] = " :$field";
             }
         }
 
-        // montando DML
-        foreach ($submit['rows'] as $field => $value) {
-            if(isset($exists[$field])) {
-                $column = $exists[$field]["Column"];
-                $strategy = isset($column->strategy) ? $column->strategy === "AUTO" : false;
+        $sql = "INSERT INTO {$entity} ( " . trim(implode(',', $fields)) . " ) VALUES ( " . trim(implode(',', $values)) . " )";
 
-                if(($strategy == false)&&($column->type != 'formula')) {
-                    $modify++;
-                    $fields[] = " $field";
-                    $values[] = " :$field";
-                }
-            }
-        }
-
-        $sql = "INSERT INTO {$table} ( " . trim(implode(',', $fields)) . " ) VALUES ( " . trim(implode(',', $values)) . " )";
-
-        return $modify === 0 ? null : $this->bindField($entity,$sql,self::DML_INSERT);
+        return $modify == 0 ? null : $this->bindField($model,$sql,self::DML_INSERT);
     }
 
     /**
@@ -131,10 +120,10 @@ class Store
      * @return \PDOStatement
      */
     public function sqlDelete( ModelInterface &$model ) : \PDOStatement {
-        $table  = $model->getNotate()->instance['Entity']->table;
+        $notate = $model->getNotate();
+		$entity = $notate->instance['Entity']->table;
 
-        // montando DML
-        $sql = "DELETE FROM {$table} WHERE id = :id";
+        $sql = "DELETE FROM {$entity} WHERE id = :id";
 
         return $this->bindField($model,$sql,self::DML_DELETE);
     }
