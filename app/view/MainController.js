@@ -62,6 +62,8 @@ Ext.define( 'Cryptic.view.main.MainController', {
             model = store.getModel(),
             route = (new model).getRouteList().route.module;
 
+        //TODO: Herdar Rotas do Model=>Store
+
         store.getProxy().setRoute(route.replace('{clientid}',1));
         store.load();
     }
