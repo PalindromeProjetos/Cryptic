@@ -9,6 +9,6 @@ interface ModelInterface extends \SmartFull\Interfaces\ObjectBaseInterface
 
 	public function toArray () : array;
 
-    public function hydrateModel(\stdClass $entity = null);
+    public function hydrateModel(\stdClass $entity);
 
 }

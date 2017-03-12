@@ -24,7 +24,7 @@ Ext.define( 'Ext.overrides.container.Container', {
 
 	fnAfterRender: function (panel, eOpts) {
         var me = this;
-		me.getEl().on('keydown', function () { me.fireEvent('keydown', me, e, {}); }, me);
+		// me.getEl().on('keydown', function () { me.fireEvent('keydown', me, e, {}); }, me);
 	}
 
 });

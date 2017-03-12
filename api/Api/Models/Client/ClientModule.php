@@ -31,4 +31,10 @@ class ClientModule extends Model
      */
     public $moduleid;
 
+    /**
+     * @Policy {"nullable":true}
+     * @Column {"description":"", "type":"formula", "policy":false, "logallow":false, "default":"getNameSearch,moduleid"}
+     */
+    public $modulename;
+
 }

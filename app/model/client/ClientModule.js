@@ -6,6 +6,14 @@ Ext.define( 'Cryptic.model.client.ClientModule', {
         'Smart.data.ModelBase'
     ],
 
+    route: {
+        module:'clients/modules/{clientid}'
+    },
+
+    routePrefix: 'clients',
+
+    startWithRoutePrefix: true,
+
     fields: [
         {
             name: 'id',
@@ -16,6 +24,9 @@ Ext.define( 'Cryptic.model.client.ClientModule', {
         }, {
             name: 'moduleid',
             type: 'int'
+        }, {
+            name: 'modulename',
+            type: 'auto'
         }
     ]
 

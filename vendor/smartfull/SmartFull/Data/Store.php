@@ -199,4 +199,14 @@ class Store
         }
     }
 
+    private function getNameSearch(array $params) : string {
+        $field = $params[1];
+        $fieldname = substr_replace($field, '', -2);
+        $table = isset($params[2]) ? $params[2] : substr_replace($field, '', -2);
+
+        $result = "{$fieldname}name = ( SELECT name FROM {$table} WHERE id = {$field} )";
+
+        return $result;
+    }
+
 }

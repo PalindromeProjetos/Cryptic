@@ -35,6 +35,13 @@ Ext.define( 'Cryptic.view.config.Configs', {
                 { text: 'Phone', dataIndex: 'phone' }
             ]
         }
+    ],
+
+    buttons: [
+        {
+            text: 'Load',
+            handler: 'onLoadModule'
+        }
     ]
 
 });

@@ -55,9 +55,9 @@ class Model extends ObjectBase implements ObjectBaseInterface, ModelInterface
 		return $entity;
 	}
 
-	protected function hydrateModel(\stdClass $entity) {	
+    public function hydrateModel(\stdClass $entity) {
 		
-		if !($entity instanceof \stdClass) { return; }
+		if (!($entity instanceof \stdClass)) { return; }
 				
 		foreach ($entity as $field=>$value) {
 			if(property_exists($this, $field)) {
