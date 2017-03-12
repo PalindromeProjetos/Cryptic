@@ -14,7 +14,7 @@ Ext.define( 'Ext.overrides.container.Container', {
 
         if(me.showSmartAnimate) {
             me.onAfter( 'render', function() { me.addCls(me.animateClsIn); }, me);
-            me.onBefore( 'destroy', function () { me.addCls(panelCenter.animateClsOut); }, me);
+            me.onBefore( 'destroy', function () { me.addCls(me.animateClsOut); }, me);
         }
 
         me.callParent();
@@ -24,12 +24,7 @@ Ext.define( 'Ext.overrides.container.Container', {
 
 	fnAfterRender: function (panel, eOpts) {
         var me = this;
-		me.getEl().on('keydown', me.fnElKeyDown, me);
-	},
-	
-	fnElKeyDown: function(e) {
-        var me = this;
-		me.fireEvent('keydown', me, e, {});
-    }
+		me.getEl().on('keydown', function () { me.fireEvent('keydown', me, e, {}); }, me);
+	}
 
 });
