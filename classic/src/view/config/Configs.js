@@ -29,9 +29,11 @@ Ext.define( 'Cryptic.view.config.Configs', {
 
         me.items = [
             {
+                padding: '20px 0 20px 0',
                 xtype: 'container',
-                html: 'Modulos registrados no sistema'
+                html: '<span style="font-size: 24px;">Modulos registrados no sistema</span>'
             }, {
+                fieldLabel: 'Cliente',
                 xtype: 'clientsearch',
                 pageSize: 0,
                 width: '30%',

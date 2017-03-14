@@ -1,6 +1,3 @@
-/**
- * Created by samuc on 13/03/2017.
- */
 //@charset UTF-8
 Ext.define( 'Cryptic.view.config.ClientSearch', {
     extend: 'Smart.form.field.ComboSearch',
