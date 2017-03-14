@@ -6,6 +6,7 @@ Ext.define( 'Cryptic.view.config.Configs', {
 
     requires: [
         'Ext.grid.Panel',
+        'Ext.grid.column.*',
         'Ext.form.field.ComboBox',
         'Cryptic.view.config.ClientSearch',
         'Cryptic.view.config.ConfigsController'
@@ -50,6 +51,21 @@ Ext.define( 'Cryptic.view.config.Configs', {
                         flex: 1,
                         text: 'Nome',
                         dataIndex: 'modulename'
+                    }, {
+                        width: 70,
+                        text: 'Ações',
+                        align: 'center',
+                        xtype: 'actioncolumn',
+                        items: [
+                            {
+                                handler: "onViewEdit",
+                                iconCls: "fa fa-info-circle",
+                                tooltip: "Editar cadastro!",
+                                style: {
+                                    "font-size": "18px"
+                                }
+                            }
+                        ]
                     }
                 ]
             }
