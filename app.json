@@ -4,7 +4,7 @@
      */
     "name": "Cryptic",
 
-    "routeBase": "api/app.php",
+    "routeBase": "api",
 
     "made": "Palindrome Projetos",
 
