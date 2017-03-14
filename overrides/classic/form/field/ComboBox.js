@@ -15,8 +15,10 @@ Ext.define( 'Ext.overrides.form.field.ComboBox', {
 
     collapseOnSelect: false,
 
+    queryParam: 'filter',
+
     valueField: 'id',
-    displayField: 'description',
+    displayField: 'name',
 
 	configPaging: null,
 		

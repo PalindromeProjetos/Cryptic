@@ -32,6 +32,26 @@ class ClientController extends Controller
 
     /**
      * @HttpGet {
+     *      "route":""
+     * }
+     *
+     * @param string $filter
+     * @param int $start
+     * @param int $limit
+     * @return ResultSet
+     */
+    public function search(string $filter = "", int $start = 0, int $limit = 10) : ResultSet {
+
+        $string = new Strings($filter);
+        $pager  = new PageRequest(array("start"=>$start, "limit"=>$limit));
+
+        $result = $this->clientBusiness->search($string, $pager);
+
+        return $result;
+    }
+
+    /**
+     * @HttpGet {
      *      "route":"list"
      * }
      */

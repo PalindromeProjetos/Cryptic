@@ -6,6 +6,7 @@ Ext.Loader.setConfig({
         'Smart.data': 'library/data',
         'Smart.data.proxy': 'library/data/proxy',
         'Smart.data.field': 'library/data/field',
+        'Smart.form.field': 'library/classic/form/field',
         'Smart.ux.app': 'library/ux/app',
         'Smart.plugins': 'library/plugins',
 

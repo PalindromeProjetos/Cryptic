@@ -112,6 +112,68 @@ class Business extends Store implements BusinessInterface
         return $result;
     }
 
+    public function search(Strings $filter, PageRequest $pager): ResultSet {
+        $start = $pager->getStart();
+        $limit = $pager->getLimit();
+        $model = new $this->_model();
+        $result = $this->getResult();
+
+        $fields = array();
+
+        foreach ($model as $field => $value) {
+            $fields[] = $field;
+        }
+
+        $sql = "
+            declare
+                @start int = :start,
+                @limit int = :limit,
+                @filter varchar(50) = :filter;
+
+            WITH pager AS (
+                SELECT
+                    ". trim(implode(', ', $fields)) .",
+                    ROW_NUMBER() OVER (ORDER BY id) AS rowindex
+                FROM
+                    {$this->_table}
+                where name like @filter
+            )
+            SELECT
+                ". trim(implode(', ', $fields)) .",
+				total = ( select count(id) from pager )
+            FROM
+                pager
+            WHERE rowindex BETWEEN @start AND @limit";
+
+        try {
+
+            $pdo = $this->getProxy()->prepare($sql);
+            $pdo->bindValue(":start", $start, \PDO::PARAM_INT);
+            $pdo->bindValue(":limit", $limit, \PDO::PARAM_INT);
+            $pdo->bindValue(":filter", $filter->format('%{0}%'), \PDO::PARAM_STR);
+
+            $callback = $pdo->execute();
+
+            if(!$callback) {
+                throw new \PDOException($result::FAILURE_STATEMENT);
+            }
+
+            $rows = $pdo->fetchAll();
+
+            $total = (count($rows) != 0) ? $rows[0]['total'] : 0;
+
+            $result->setRows($rows);
+            $result->setRecords($total);
+
+        } catch ( \PDOException $e ) {
+            $result->setSuccess(false);
+            $result->setText($e->getMessage());
+        }
+
+        return $result;
+
+    }
+
 	public function insert(ModelInterface &$model) : ResultSet {
 		$result = $this->getResult();
 

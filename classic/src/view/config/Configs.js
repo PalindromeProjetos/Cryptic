@@ -7,6 +7,7 @@ Ext.define( 'Cryptic.view.config.Configs', {
     requires: [
         'Ext.grid.Panel',
         'Ext.form.field.ComboBox',
+        'Cryptic.view.config.ClientSearch',
         'Cryptic.view.config.ConfigsController'
     ],
 
@@ -31,20 +32,14 @@ Ext.define( 'Cryptic.view.config.Configs', {
                 xtype: 'container',
                 html: 'Modulos registrados no sistema'
             }, {
-                xtype: 'combobox',
-                store: {
-                    fields: ['abbr', 'name'],
-                    data : [
-                        {"abbr":"AL", "name":"Alabama"},
-                        {"abbr":"AK", "name":"Alaska"},
-                        {"abbr":"AZ", "name":"Arizona"}
-                    ]
-                },
-                fieldLabel: 'Choose State',
-                queryMode: 'local',
-                displayField: 'name',
-                valueField: 'abbr',
-                pageSize: 0
+                xtype: 'clientsearch',
+                pageSize: 0,
+                width: '30%',
+                minWidth: 350,
+                listeners: {
+                    showclear: 'onShowClear',
+                    select: 'onSelectClient'
+                }
             }, {
                 xtype: 'gridpanel',
                 store: clientModule,
@@ -57,13 +52,6 @@ Ext.define( 'Cryptic.view.config.Configs', {
                 ]
             }
         ];
-    },
-
-    buttons: [
-        {
-            text: 'Load',
-            handler: 'onLoadModule'
-        }
-    ]
+    }
 
 });
