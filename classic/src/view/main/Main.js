@@ -26,6 +26,15 @@ Ext.define( 'Cryptic.view.main.Main', {
             layout: 'hbox',
             items: [
                 {
+                    xtype: 'label',
+                    text: 'Cryptic',
+                    style: {
+                        padding: '0 0 0 10px',
+                        fontSize: '24px;',
+                        color: 'white',
+                        lineHeight: '47px;'
+                    }
+                }, {
                     flex: 1,
                     xtype: 'container'
                 }, {

@@ -39,8 +39,6 @@ Ext.define( 'Smart.ux.classic.login.Login', {
                     maxWidth: 350,
                     layout: 'card',
                     name: 'userlogin',
-                    cardSwitchAnimation:'slide',
-                    scroll:'vertical',
                     items: [
                         {
                             xtype: 'logincomein'

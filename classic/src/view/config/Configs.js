@@ -7,6 +7,7 @@ Ext.define( 'Cryptic.view.config.Configs', {
     requires: [
         'Ext.grid.Panel',
         'Ext.grid.column.*',
+        'Ext.grid.column.Action',
         'Ext.form.field.ComboBox',
         'Cryptic.view.config.ClientSearch',
         'Cryptic.view.config.ConfigsController'
