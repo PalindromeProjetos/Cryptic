@@ -1,10 +1,19 @@
 //@charset UTF-8
-Ext.define( 'Cryptic.model.profile.Token', {
+Ext.define( 'Cryptic.model.client.Token', {
     extend: 'Smart.data.ModelBase',
 
     requires: [
         'Smart.data.ModelBase'
     ],
+
+    route: {
+        id:'clients/module-token/{id}',
+        tokens:'clients/module-tokens/{clientmoduleid}'
+    },
+
+    routePrefix: 'clients/module-tokens',
+
+    startWithRoutePrefix: true,
 
     fields: [
         {

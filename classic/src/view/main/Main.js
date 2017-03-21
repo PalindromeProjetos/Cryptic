@@ -14,6 +14,7 @@ Ext.define( 'Cryptic.view.main.Main', {
     plugins: 'viewport',
 
     viewModel: 'main',
+
     controller: 'main',
 
     layout: 'border',
@@ -22,16 +23,16 @@ Ext.define( 'Cryptic.view.main.Main', {
         {
             region: 'north',
             xtype: 'container',
-            style: { "background-color":"#212121;" },
+            style: { "background-color" : "#212121;" },
             layout: 'hbox',
             items: [
                 {
                     xtype: 'label',
                     text: 'Cryptic',
                     style: {
-                        padding: '0 0 0 10px',
-                        fontSize: '24px;',
-                        color: 'white',
+                        padding: '0 0 0 10px;',
+                        fontSize: '26px;',
+                        color: 'white;',
                         lineHeight: '47px;'
                     }
                 }, {
@@ -42,7 +43,6 @@ Ext.define( 'Cryptic.view.main.Main', {
                     style: { "background-color":"transparent !important;" },
                     items: [
                         {
-                            // allowDepress: false,
                             enableToggle: true,
                             iconCls: "fa fa-bars",
                             toggleHandler: 'setMicro'

@@ -19,13 +19,15 @@ use Psr\Http\Message\ServerRequestInterface as Request;
  */
 class ClientController extends Controller
 {
-
+    protected $tokenBusiness = null;
     protected $clientBusiness = null;
     protected $clientModuleBusiness = null;
 
     public function __construct(?Request &$request, ?Response &$response)
     {
         parent::__construct($request, $response);
+
+        $this->tokenBusiness = new TokenBusiness();
         $this->clientBusiness = new ClientBusiness();
         $this->clientModuleBusiness = new ClientModuleBusiness();
     }
@@ -77,10 +79,21 @@ class ClientController extends Controller
 
     /**
      * @HttpGet {
+     *      "route":"module/{id}"
+     * }
+     */
+    public function getByIdModuleClient(int $id) : ResultSet {
+        $result = $this->clientModuleBusiness->get($id);
+
+        return $result;
+    }
+
+    /**
+     * @HttpGet {
      *      "route":"modules/{clientid}"
      * }
      */
-    public function getByClientId(int $clientid, int $start = 0, int $limit = 10) : ResultSet {
+    public function getByModuleClientId(int $clientid, int $start = 0, int $limit = 10) : ResultSet {
         $pager  = new PageRequest(array("start"=>$start, "limit"=>$limit));
 
         $result = $this->clientModuleBusiness->getByClientId($clientid,$pager);
@@ -88,4 +101,16 @@ class ClientController extends Controller
         return $result;
     }
 
+    /**
+     * @HttpGet {
+     *      "route":"module-tokens/{clientmoduleid}"
+     * }
+     */
+    public function getByTokensModuleClientId(int $clientmoduleid, int $start = 0, int $limit = 10) : ResultSet {
+        $pager  = new PageRequest(array("start"=>$start, "limit"=>$limit));
+
+        $result = $this->tokenBusiness->getByModuleClientId($clientmoduleid,$pager);
+
+        return $result;
+    }
 }
